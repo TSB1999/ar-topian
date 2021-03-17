@@ -1,5 +1,5 @@
 import React from "react";
-import LandingButton from "../../molecules/landing-buttons";
+import LandingButtons from "../../molecules/landing-buttons";
 
 export default function Landing() {
   return (
@@ -7,7 +7,7 @@ export default function Landing() {
       <h1 className="landing__heading">Get your ARtopian merch now!</h1>
       <h3 className="landing__subheading">BRING YOUR ITEMS TO LIFE</h3>
       <div className="landing__buttons">
-        <LandingButton />
+        <LandingButtons />
       </div>
     </div>
   );
