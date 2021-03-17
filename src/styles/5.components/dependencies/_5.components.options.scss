@@ -2,4 +2,15 @@
     display: flex;
     width: 70%;
     justify-content: space-between;
+
+    &__search, &__basket, &__menu {
+      padding-bottom : 0.2rem;
+    }
+
+   
+
+    &__search:hover, &__basket:hover, &__menu:hover {
+      color : #292929;
+      border-bottom: 0.1rem solid #292929;
+    }
   }
