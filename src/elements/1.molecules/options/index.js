@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, Basket, Menu } from "../../atoms/icons";
+import { Search, Basket, Menu } from "../../0.atoms/icons";
 
 export default function Options() {
   return (
