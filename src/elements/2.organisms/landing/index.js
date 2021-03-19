@@ -1,5 +1,5 @@
 import React from "react";
-import LandingButtons from "../../molecules/landing-buttons";
+import LandingButtons from "../../1.molecules/landing-buttons";
 
 export default function Landing() {
   return (
