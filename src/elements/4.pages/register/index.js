@@ -1,10 +1,10 @@
 import React from "react";
-import Registration from "../../1.molecules/registration";
+import Register from "../../3.templates/register";
 
-export default function Register() {
+export default function REGISTER__PAGE() {
   return (
     <div>
-      <Registration />
+      <Register />
     </div>
   );
 }

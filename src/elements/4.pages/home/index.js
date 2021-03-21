@@ -1,11 +1,10 @@
 import React from "react";
-import Landing from "../../2.organisms/landing";
+import Home from "../../3.templates/home";
 
-export default function Home() {
+export default function HOME__PAGE() {
   return (
     <div>
-      Home
-      <Landing />
+      <Home />
     </div>
   );
 }
