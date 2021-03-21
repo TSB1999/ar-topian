@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../0.atoms/buttons";
 import { Link } from "react-router-dom";
 
-export default function Registration() {
+export default function RegistrationElement() {
   return (
     <div>
       <form
