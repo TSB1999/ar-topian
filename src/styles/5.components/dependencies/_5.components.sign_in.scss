@@ -1,22 +1,32 @@
 .sign-in {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__top-panel {
+    background: #c4c4c4;
+    flex: 0.3;
+  }
+
+  &__bottom-panel {
+    background: #c4c4c4;
+    flex: 1;
+  }
+
+  &__title {
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+    text-align: center;
+  }
+
+  &__form {
     display: flex;
-    flex-direction: column; 
-    width: 20rem;
+    justify-content: center;
+  }
 
-    &__buttons {
-        display : flex;
-        justify-content : space-around
-    }
-
-    & > input {
-        background : #C4C4C4;
-        border : none;
-        border-radius : 0.3rem;
-        padding : 0.3rem;
-        margin-bottom : 1rem
-    }
-
-    & > label {
-        font-weight : bold
-    }
+  &__sublink {
+    text-align: center;
+    padding: 1rem 0;
+  }
 }

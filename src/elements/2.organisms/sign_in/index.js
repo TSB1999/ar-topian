@@ -6,7 +6,7 @@ export default function SignInElement() {
   return (
     <div>
       <form
-        className="sign-in"
+        className="sign-in-form"
         onSubmit={(e) => {
           e.preventDefault();
           console.log("hi");
@@ -18,11 +18,11 @@ export default function SignInElement() {
         <label for="password">PASSWORD</label>
         <input type="password" name="password" /**value */ />
 
-        <div className="sign-in__buttons">
+        <div className="sign-in-form__buttons">
           <Link to="/">
             <Button title="BACK" />
           </Link>
-          <Button title="SIGN IN" />
+          <Button title="SIGN IN" background="#000" color="#fff" />
         </div>
       </form>
     </div>

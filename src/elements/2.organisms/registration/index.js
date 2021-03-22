@@ -6,7 +6,7 @@ export default function RegistrationElement() {
   return (
     <div>
       <form
-        className="register"
+        className="registration-form"
         onSubmit={(e) => {
           e.preventDefault();
           console.log("hi");
@@ -24,11 +24,11 @@ export default function RegistrationElement() {
         <label for="confirm_password">CONFIRM PASSWORD</label>
         <input type="password" name="confirm_password" /**value */ />
 
-        <div className="register__buttons">
+        <div className="registration-form__buttons">
           <Link to="/">
             <Button title="BACK" />
           </Link>
-          <Button title="REGISTER" />
+          <Button title="REGISTER" background="#000" color="#fff" />
         </div>
       </form>
     </div>
