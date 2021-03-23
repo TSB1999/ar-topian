@@ -1,11 +1,11 @@
 import "./styles/main.scss";
 import Navbar from "./elements/2.organisms/navbar";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import Home from "./elements/4.PAGES/home";
-import Register from "./elements/4.PAGES/register";
-import SignIn from "./elements/4.PAGES/sign_in";
-import Shop from "./elements/4.PAGES/shop";
-import Checkout from "./elements/4.PAGES/checkout";
+import Home from "./pages/home";
+import Register from "./pages/register";
+import SignIn from "./pages/sign_in";
+import Shop from "./pages/shop";
+import Checkout from "./pages/checkout";
 
 function App() {
   return (

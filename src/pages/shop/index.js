@@ -1,5 +1,5 @@
 import React from "react";
-import Shop from "../../3.templates/shop";
+import Shop from "../../elements/3.templates/shop";
 
 export default function SHOP__PAGE() {
   return (
