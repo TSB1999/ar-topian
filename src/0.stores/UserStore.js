@@ -1,8 +1,4 @@
 import { extendObservable } from "mobx";
-
-/**
- * UserStore
- */
 class UserStore {
   constructor() {
     extendObservable(this, {
