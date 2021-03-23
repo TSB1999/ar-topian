@@ -1,5 +1,5 @@
 import React from "react";
-import Checkout from "../../elements/3.templates/checkout";
+import Checkout from "../../5.elements/3.templates/checkout";
 
 export default function CHECKOUT__PAGE() {
   return (
