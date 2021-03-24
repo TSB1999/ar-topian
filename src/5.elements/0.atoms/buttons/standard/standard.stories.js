@@ -12,8 +12,8 @@ export default {
 
 const Template = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Standard = Template.bind({});
+Standard.args = {
   title: "REGISTER",
   theme: "light",
 };
