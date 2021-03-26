@@ -12,23 +12,23 @@ export default function RegistrationElement() {
           console.log("hi");
         }}
       >
-        <label for="name">FULL NAME</label>
+        <label>FULL NAME</label>
         <input type="text" name="name" /**value */ />
 
-        <label for="email">EMAIL</label>
+        <label>EMAIL</label>
         <input type="email" name="email" /**value */ />
 
-        <label for="password">PASSWORD</label>
+        <label>PASSWORD</label>
         <input type="password" name="password" /**value */ />
 
-        <label for="confirm_password">CONFIRM PASSWORD</label>
+        <label>CONFIRM PASSWORD</label>
         <input type="password" name="confirm_password" /**value */ />
 
         <div className="registration-form__buttons">
           <Link to="/">
-            <StandardButton title="BACK" />
+            <StandardButton title="BACK" theme="light" />
           </Link>
-          <StandardButton title="REGISTER" background="#000" color="#fff" />
+          <StandardButton title="REGISTER" theme="dark" />
         </div>
       </form>
     </div>

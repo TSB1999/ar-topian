@@ -10,7 +10,7 @@ export default function Options() {
     <div className="options">
       <Search size="medium" />
       <Link to="/checkout">
-        <Basket />
+        <Basket size="medium" />
       </Link>
       <Menu size="medium" />
     </div>
