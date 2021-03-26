@@ -1,4 +1,3 @@
-import React from "react";
 import "./styles.css";
 
 export default function Basket({ ...props }) {
@@ -16,5 +15,7 @@ export default function Basket({ ...props }) {
     default:
     // code block
   }
-  return <i class={["basket", "fas fa-shopping-basket", size].join(" ")}></i>;
+  return (
+    <i className={["basket", "fas fa-shopping-basket", size].join(" ")}></i>
+  );
 }
