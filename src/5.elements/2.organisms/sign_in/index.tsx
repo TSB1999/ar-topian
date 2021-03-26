@@ -12,17 +12,17 @@ export default function SignInElement() {
           console.log("hi");
         }}
       >
-        <label for="email">EMAIL</label>
+        <label>EMAIL</label>
         <input type="email" name="email" /**value */ />
 
-        <label for="password">PASSWORD</label>
+        <label>PASSWORD</label>
         <input type="password" name="password" /**value */ />
 
         <div className="sign-in-form__buttons">
           <Link to="/">
-            <StandardButton title="BACK" />
+            <StandardButton title="BACK" theme="light" />
           </Link>
-          <StandardButton title="SIGN IN" background="#000" color="#fff" />
+          <StandardButton title="SIGN IN" theme="dark" />
         </div>
       </form>
     </div>
