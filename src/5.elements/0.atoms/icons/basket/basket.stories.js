@@ -1,6 +1,6 @@
 import React from "react";
 
-import Basket from "./index.js";
+import Basket from "./index";
 
 export default {
   title: "Example/Icon",

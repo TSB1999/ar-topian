@@ -12,8 +12,14 @@ export default {
 
 const Template = (args) => <Button {...args} />;
 
-export const Standard = Template.bind({});
-Standard.args = {
+export const Light = Template.bind({});
+Light.args = {
   title: "REGISTER",
   theme: "light",
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+  title: "SIGN IN",
+  theme: "dark",
 };
