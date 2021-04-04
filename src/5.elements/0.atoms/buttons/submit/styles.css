@@ -1,0 +1,20 @@
+.submit-button {
+  padding: 0.35rem 1rem;
+  border-radius: 0.3rem;
+  border: 2px solid #292929;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  min-width: 7rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem #292929;
+}
+
+.submit-button--dark {
+  background: #000;
+  color: #d8d8d8;
+}
+
+.submit-button--light {
+  background: #fff;
+  color: #292929;
+}
