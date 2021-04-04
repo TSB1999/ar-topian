@@ -1,5 +1,5 @@
 import React from "react";
-import StandardButton from "../../0.atoms/buttons/standard";
+import ButtonPair from "../../1.molecules/landing-buttons";
 import { Link } from "react-router-dom";
 
 export default function RegistrationElement() {
@@ -25,10 +25,7 @@ export default function RegistrationElement() {
         <input type="password" name="confirm_password" /**value */ />
 
         <div className="registration-form__buttons">
-          <Link to="/">
-            <StandardButton title="BACK" theme="light" />
-          </Link>
-          <StandardButton title="REGISTER" theme="dark" />
+          <ButtonPair lightLabel="REGISTER" darkLabel="SIGN IN" />
         </div>
       </form>
     </div>

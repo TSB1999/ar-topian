@@ -7,10 +7,12 @@ export interface TextProps {
   onClick?: () => void;
 }
 
-export const Text: React.FC<TextProps> = ({
+export const SubHeading: React.FC<TextProps> = ({
   backgroundColor,
   label,
   ...props
 }) => {
   return <h1 className="subheading-text">{label}</h1>;
 };
+
+export default SubHeading;
