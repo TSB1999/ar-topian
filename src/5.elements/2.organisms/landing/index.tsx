@@ -28,7 +28,12 @@ export const Landing: React.FC<LandingProps> = ({ ...props }) => {
           <SubHeading label="BRING YOUR ITEMS TO LIFE" />
         </div>
         <div style={{ marginBottom: "1rem" }}>
-          <ButtonPair lightLabel="Register" darkLabel="Sign In" />
+          <ButtonPair
+            firstRoute="/register"
+            secondRoute="/sign-in"
+            lightLabel="Register"
+            darkLabel="Sign In"
+          />
         </div>
       </div>
     </div>

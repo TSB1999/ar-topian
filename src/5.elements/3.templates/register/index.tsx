@@ -9,7 +9,11 @@ export default function Register() {
     <div className="registration">
       <div className="registration__top-panel"></div>
       <div>
-        <Heading color="#f0f0f0" label="One step away from your experience!" />
+        <Heading
+          color="#0F0F0F"
+          textShadow="none"
+          label="One step away from your experience!"
+        />
       </div>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
