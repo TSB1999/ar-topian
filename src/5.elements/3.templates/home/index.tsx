@@ -10,6 +10,7 @@ export default function Home() {
           color: "#fff",
           fontWeight: "bold",
           padding: "0.2rem",
+          textAlign: "center",
         }}
       >
         Home
