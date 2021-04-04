@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../navbar";
 import Heading from "../../0.atoms/text/heading";
 import SubHeading from "../../0.atoms/text/subheading";
 import ButtonPair from "../../1.molecules/landing-buttons";
@@ -9,6 +10,9 @@ export interface LandingProps {
 export const Landing: React.FC<LandingProps> = ({ ...props }) => {
   return (
     <div className="landing">
+      <div>
+        <Navbar />
+      </div>
       <div
         style={{
           display: "flex",
@@ -16,7 +20,7 @@ export const Landing: React.FC<LandingProps> = ({ ...props }) => {
           justifyContent: "flex-end",
           alignItems: "center",
           backgroundColor: "#737373",
-          minHeight: "30vh",
+          minHeight: "40vh",
           padding: "3rem 0",
         }}
       >

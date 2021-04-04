@@ -1,17 +1,17 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import { Text, TextProps } from "./";
+import SubHeading, { TextProps } from "./";
 
 export default {
   title: "Components/Atoms/Text/Subheading",
-  component: Text,
+  component: SubHeading,
   argTypes: {
     backgroundColor: { control: "color" },
   },
 } as Meta;
 
-const Template: Story<TextProps> = (args) => <Text {...args} />;
+const Template: Story<TextProps> = (args) => <SubHeading {...args} />;
 
 export const Standard = Template.bind({});
 Standard.args = {

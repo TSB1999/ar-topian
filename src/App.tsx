@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./4.styles/main.scss";
+// import "./4.styles/main.scss";
 import { UserContext } from "./0.stores/UserContext";
 import Navbar from "./5.elements/2.organisms/navbar";
 import { Route, BrowserRouter as Router } from "react-router-dom";
