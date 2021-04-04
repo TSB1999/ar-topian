@@ -1,0 +1,7 @@
+.landing-buttons {
+  display: flex;
+
+  & > div {
+    margin: 1rem;
+  }
+}

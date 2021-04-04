@@ -1,20 +1,23 @@
 import React from "react";
 import Registration from "../../2.organisms/registration";
+import "./styles.scss";
+import Heading from "../../0.atoms/text/heading";
+import SubHeading from "../../0.atoms/text/subheading";
 
 export default function Register() {
   return (
     <div className="registration">
       <div className="registration__top-panel"></div>
-      <div className="registration__title">
-        <h1>One step away from your experience!</h1>
+      <div>
+        <Heading color="#f0f0f0" label="One step away from your experience!" />
       </div>
 
-      <div className="registration__form">
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <Registration />
       </div>
 
-      <div className="registration__sublink">
-        <h3>ALREADY HAVE AN ACCOUNT? SIGN IN</h3>
+      <div>
+        <SubHeading label="ALREADY HAVE AN ACCOUNT? SIGN IN" />
       </div>
 
       <div className="registration__bottom-panel"></div>

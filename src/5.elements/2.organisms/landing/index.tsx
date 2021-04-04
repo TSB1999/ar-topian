@@ -4,15 +4,12 @@ import Heading from "../../0.atoms/text/heading";
 import SubHeading from "../../0.atoms/text/subheading";
 import ButtonPair from "../../1.molecules/landing-buttons";
 export interface LandingProps {
-  label: string;
+  // label: string;
 }
 
 export const Landing: React.FC<LandingProps> = ({ ...props }) => {
   return (
     <div className="landing">
-      <div>
-        <Navbar />
-      </div>
       <div
         style={{
           display: "flex",

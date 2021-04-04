@@ -1,6 +1,7 @@
 import React from "react";
 import ButtonPair from "../../1.molecules/landing-buttons";
 import { Link } from "react-router-dom";
+import "./styles.css";
 
 export default function RegistrationElement() {
   return (
@@ -25,7 +26,7 @@ export default function RegistrationElement() {
         <input type="password" name="confirm_password" /**value */ />
 
         <div className="registration-form__buttons">
-          <ButtonPair lightLabel="REGISTER" darkLabel="SIGN IN" />
+          <ButtonPair lightLabel="BACK" darkLabel="REGISTER" />
         </div>
       </form>
     </div>
