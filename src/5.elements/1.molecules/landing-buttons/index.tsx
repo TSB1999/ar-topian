@@ -16,14 +16,14 @@ export const ButtonPair: React.FC<TextProps> = ({ ...props }) => {
     // <Router>
     <div className="landing-buttons">
       <div>
-        <Link to={props.firstRoute}>
-          <SubmitButton label={props.lightLabel} theme="light" />
-        </Link>
+        {/* <Link to={props.firstRoute}> */}
+        <SubmitButton label={props.lightLabel} theme="light" />
+        {/* </Link> */}
       </div>
       <div>
-        <Link to={props.secondRoute}>
-          <SubmitButton label={props.darkLabel} theme="dark" />
-        </Link>
+        {/* <Link to={props.secondRoute}> */}
+        <SubmitButton label={props.darkLabel} theme="dark" />
+        {/* </Link> */}
       </div>
     </div>
     // </Router>

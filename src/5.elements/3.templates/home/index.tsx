@@ -13,7 +13,7 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        Home
+        xyz
       </div>
       <Landing />
     </div>
