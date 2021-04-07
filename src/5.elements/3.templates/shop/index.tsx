@@ -4,24 +4,15 @@ import Container from "../../0.atoms/containers";
 import Proceed from "../../0.atoms/buttons/proceed";
 import SizeButton from "../../0.atoms/buttons/size";
 
+import "./styles.css";
+
 interface ShopTemplateProps {
   total: number;
 }
 
-export const Shop: React.FC<ShopTemplateProps> = ({
-  total = "VE",
-  ...props
-}) => {
+export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
   return (
-    <div
-      style={{
-        background: "#737373",
-        minHeight: "80vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <div className="shop">
       <div
         style={{
           marginTop: "1rem",
@@ -30,19 +21,20 @@ export const Shop: React.FC<ShopTemplateProps> = ({
       >
         <Sort setting="high to low" />
       </div>
+
       <div style={{ marginBottom: "1rem" }}>
         <Container
           display="grid"
           height="40vh"
           width="80vw"
           backgroundColor="#C4C4C4"
-        >
-          fwerfe
-        </Container>
+        ></Container>
       </div>
+
       <div style={{ marginBottom: "1rem" }}>
         <Proceed icon="upload" label="UPLOAD A SHORT CLIP" />
       </div>
+
       <div style={{ marginBottom: "1rem" }}>
         <Container
           display="grid"
@@ -51,44 +43,21 @@ export const Shop: React.FC<ShopTemplateProps> = ({
           backgroundColor="#C4C4C4"
           noOfColumns={4}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className="shop__button">
             <SizeButton label="S" selected={false} />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className="shop__button">
             <SizeButton label="M" selected={true} />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className="shop__button">
             <SizeButton label="L" selected={false} />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className="shop__button">
             <SizeButton label="XL" selected={false} />
           </div>
         </Container>
       </div>
+
       <div>
         <Container
           display="grid"
@@ -99,15 +68,7 @@ export const Shop: React.FC<ShopTemplateProps> = ({
           noOfRows={3}
           color="#fff"
         >
-          <div
-            style={{
-              padding: "1rem",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "flex-end",
-            }}
-          >
+          <div className="shop__footer">
             <div style={{ marginBottom: "1rem" }}>${` ${total}`}</div>
             <div style={{ marginBottom: "1rem" }}>
               <Proceed icon="shopping-basket" label="PROCEED TO CHECKOUT" />

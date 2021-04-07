@@ -3,6 +3,8 @@ import Navbar from "../navbar";
 import Heading from "../../0.atoms/text/heading";
 import SubHeading from "../../0.atoms/text/subheading";
 import ButtonPair from "../../1.molecules/landing-buttons";
+
+import "./styles.css";
 export interface LandingProps {
   // label: string;
 }
@@ -10,31 +12,19 @@ export interface LandingProps {
 export const Landing: React.FC<LandingProps> = ({ ...props }) => {
   return (
     <div className="landing">
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          alignItems: "center",
-          backgroundColor: "#737373",
-          minHeight: "40vh",
-          padding: "3rem 0",
-        }}
-      >
-        <div style={{ marginBottom: "1rem" }}>
-          <Heading label="Get your ARtopian merch now!" />
-        </div>
-        <div style={{ marginBottom: "1rem" }}>
-          <SubHeading label="BRING YOUR ITEMS TO LIFE" />
-        </div>
-        <div style={{ marginBottom: "1rem" }}>
-          <ButtonPair
-            firstRoute="/register"
-            secondRoute="/sign-in"
-            lightLabel="Register"
-            darkLabel="Sign In"
-          />
-        </div>
+      <div style={{ marginBottom: "1rem" }}>
+        <Heading label="Get your ARtopian merch now!" />
+      </div>
+      <div style={{ marginBottom: "1rem" }}>
+        <SubHeading label="BRING YOUR ITEMS TO LIFE" />
+      </div>
+      <div style={{ marginBottom: "1rem" }}>
+        <ButtonPair
+          firstRoute="/register"
+          secondRoute="/sign-in"
+          lightLabel="Register"
+          darkLabel="Sign In"
+        />
       </div>
     </div>
   );

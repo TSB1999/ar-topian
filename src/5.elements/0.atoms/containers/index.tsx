@@ -16,17 +16,8 @@ export interface ContainerProps {
 }
 
 export const Container: React.FC<ContainerProps> = ({
-  display,
-  backgroundColor,
-  color,
-  height,
-  width,
   noOfColumns,
   noOfRows,
-  padding,
-  justifyContent,
-  alignItems,
-  margin,
   children,
   ...props
 }) => {
@@ -34,17 +25,9 @@ export const Container: React.FC<ContainerProps> = ({
     <div
       className="container"
       style={{
-        backgroundColor: backgroundColor,
-        color: color,
-        display: display,
         gridTemplateColumns: `repeat(${noOfColumns}, 1fr)`,
         gridTemplateRows: `repeat(${noOfRows}, 1fr)`,
-        height: height,
-        width: width,
-        justifyContent: justifyContent,
-        alignItems: alignItems,
-        padding: padding,
-        margin: margin,
+        ...props,
       }}
     >
       {children}

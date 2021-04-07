@@ -11,9 +11,9 @@ export default function NavLogo() {
         padding: "0.3rem",
       }}
     >
-      {/* <Link to="/"> */}
-      <h3 style={{ color: "#fff", fontFamily: "Helvetica" }}>ARtopian</h3>
-      {/* </Link> */}
+      <Link to="/">
+        <h3 style={{ color: "#fff", fontFamily: "Helvetica" }}>ARtopian</h3>
+      </Link>
     </div>
   );
 }
