@@ -2,18 +2,18 @@ import React from "react";
 import "./styles.css";
 
 export interface ButtonProps {
-  selected: boolean;
+  selected?: boolean;
   backgroundColor?: string;
   label: string;
+  icon: string;
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  // primary = false,
+export const Proceed: React.FC<ButtonProps> = ({
   selected = false,
-  //   size = "medium",
   backgroundColor,
   label,
+  icon,
   ...props
 }) => {
   return (
@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       <div className="proceed-button__icon">
-        <i className="fas fa-calendar-week "></i>
+        <i className={`fas fa-${icon}`}></i>
       </div>
       <div className="proceed-button__label">
         <div>{label}</div>
@@ -32,3 +32,5 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
+export default Proceed;

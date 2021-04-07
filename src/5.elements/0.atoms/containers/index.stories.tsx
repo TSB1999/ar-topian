@@ -11,7 +11,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ContainerProps> = (args) => <Container_ {...args} />;
+const Template: Story<ContainerProps> = (args) => (
+  <Container_ {...args}>I'm in a container</Container_>
+);
 
 export const Container = Template.bind({});
 Container.args = {
@@ -20,4 +22,6 @@ Container.args = {
   height: "50rem",
   width: "50rem",
   noOfColumns: 2,
+  justifyContent: "center",
+  alignItems: "center",
 };

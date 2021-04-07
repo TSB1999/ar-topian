@@ -9,9 +9,7 @@ export interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  // primary = false,
   selected = false,
-  //   size = "medium",
   backgroundColor,
   label,
   ...props
@@ -28,3 +26,5 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
+export default Button;
