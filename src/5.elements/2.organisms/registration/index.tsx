@@ -1,6 +1,5 @@
 import React from "react";
 import ButtonPair from "../../1.molecules/landing-buttons";
-import { Link } from "react-router-dom";
 import "./styles.css";
 
 interface RegistrationProps {

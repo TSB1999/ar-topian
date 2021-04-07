@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { REGISTER_USER } from "../1.authentication";
 interface RegistrationProps {
   name: string | null;
   email: string | null;
@@ -18,6 +18,8 @@ export const useRegister = () => {
   useEffect(() => {
     console.log(registration);
   }, [registration]);
+
+  // Registration here (firebase)
 
   return {
     registration,

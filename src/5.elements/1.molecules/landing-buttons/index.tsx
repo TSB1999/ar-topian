@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
-import SubmitButton, { ButtonProps } from "../../0.atoms/buttons/submit";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import SubmitButton from "../../0.atoms/buttons/submit";
+import { Link } from "react-router-dom";
 
 export interface TextProps {
   lightLabel: string;

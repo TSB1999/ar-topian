@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../navbar";
 import Heading from "../../0.atoms/text/heading";
 import SubHeading from "../../0.atoms/text/subheading";
 import ButtonPair from "../../1.molecules/landing-buttons";
