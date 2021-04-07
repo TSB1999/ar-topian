@@ -17,4 +17,5 @@ export const Standard = Template.bind({});
 Standard.args = {
   // primary: true,
   label: "Proceed to checkout",
+  icon: "",
 };

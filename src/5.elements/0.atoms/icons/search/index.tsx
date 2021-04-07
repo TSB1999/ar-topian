@@ -1,6 +1,11 @@
 import React from "react";
+import "./styles.css";
 
-export default function Search({ ...props }) {
+interface IconProps {
+  size: "small" | "medium" | "large";
+}
+
+export const Search: React.FC<IconProps> = ({ ...props }) => {
   let size;
   switch (props.size) {
     case "small":
@@ -16,4 +21,6 @@ export default function Search({ ...props }) {
     // code block
   }
   return <i className={["search", "fas fa-search", size].join(" ")}></i>;
-}
+};
+
+export default Search;

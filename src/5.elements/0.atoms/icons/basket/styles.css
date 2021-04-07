@@ -1,11 +1,10 @@
-
-
-.search, .basket, .menu {
-  padding-bottom : 0.2rem;
-  transition : 0.6s;
+.basket {
+  padding-bottom: 0.2rem;
+  transition: 0.6s;
+  color: #fff;
 }
 
-.search:hover, .basket:hover, .menu:hover {
-  color : #292929;
-  font-size : 2rem;
+.basket:hover {
+  color: #292929;
+  font-size: 2rem;
 }

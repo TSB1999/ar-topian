@@ -18,7 +18,7 @@ const Template: Story<ContainerProps> = (args) => (
 export const Container = Template.bind({});
 Container.args = {
   backgroundColor: "red",
-  display: "grid",
+  display: "flex",
   height: "50rem",
   width: "50rem",
   noOfColumns: 2,

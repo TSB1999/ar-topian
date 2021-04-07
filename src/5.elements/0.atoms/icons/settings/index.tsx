@@ -1,6 +1,7 @@
 import React from "react";
+import "./styles.css";
 
-export default function Search({ ...props }) {
+export default function Settings({ ...props }) {
   let size;
   switch (props.size) {
     case "small":
@@ -15,5 +16,5 @@ export default function Search({ ...props }) {
     default:
     // code block
   }
-  return <i className={["search", "fas fa-sliders-h", size].join(" ")}></i>;
+  return <i className={["settings", "fas fa-sliders-h", size].join(" ")}></i>;
 }

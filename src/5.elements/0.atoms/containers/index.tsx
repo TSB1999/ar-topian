@@ -15,26 +15,39 @@ export interface ContainerProps {
   alignItems?: string;
 }
 
-export const Container: React.FC<ContainerProps> = ({ ...props }) => {
+export const Container: React.FC<ContainerProps> = ({
+  display,
+  backgroundColor,
+  color,
+  height,
+  width,
+  noOfColumns,
+  noOfRows,
+  padding,
+  justifyContent,
+  alignItems,
+  margin,
+  children,
+  ...props
+}) => {
   return (
     <div
       className="container"
       style={{
-        backgroundColor: props.backgroundColor,
-        color: props.color,
-        display: props.display,
-        gridTemplateColumns: `repeat(${props.noOfColumns}, 1fr)`,
-        gridTemplateRows: `repeat(${props.noOfRows}, 1fr)`,
-        height: props.height,
-        width: props.width,
-        justifyContent: props.justifyContent,
-        alignItems: props.alignItems,
-        padding: props.padding,
-        margin: props.margin,
+        backgroundColor: backgroundColor,
+        color: color,
+        display: display,
+        gridTemplateColumns: `repeat(${noOfColumns}, 1fr)`,
+        gridTemplateRows: `repeat(${noOfRows}, 1fr)`,
+        height: height,
+        width: width,
+        justifyContent: justifyContent,
+        alignItems: alignItems,
+        padding: padding,
+        margin: margin,
       }}
-      {...props}
     >
-      {props.children}
+      {children}
     </div>
   );
 };

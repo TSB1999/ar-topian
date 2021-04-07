@@ -1,3 +1,5 @@
+import "./styles.css";
+
 export default function Menu({ ...props }) {
   let size;
   switch (props.size) {
