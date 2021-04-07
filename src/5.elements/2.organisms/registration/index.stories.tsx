@@ -11,7 +11,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => <Registration {...args} />;
+const Template: Story = (args) => (
+  <Registration handleRegistrationChange {...args} />
+);
 
 export const RegistrationForm = Template.bind({});
 RegistrationForm.args = {

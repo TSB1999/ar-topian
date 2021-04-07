@@ -4,7 +4,7 @@ import "./styles.scss";
 import Heading from "../../0.atoms/text/heading";
 import SubHeading from "../../0.atoms/text/subheading";
 
-export default function Register() {
+export default function Register({ handleRegistrationChange }) {
   return (
     <div className="registration">
       <div className="registration__top-panel"></div>
@@ -17,7 +17,7 @@ export default function Register() {
       </div>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Registration />
+        <Registration handleRegistrationChange={handleRegistrationChange} />
       </div>
 
       <div>
