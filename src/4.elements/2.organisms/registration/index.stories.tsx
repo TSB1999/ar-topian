@@ -1,20 +1,22 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import SignIn from "./";
+import Registration from ".";
 
 export default {
   title: "Components/Organisms",
-  component: SignIn,
+  component: Registration,
   argTypes: {
     backgroundColor: { control: "color" },
   },
 } as Meta;
 
-const Template: Story = (args) => <SignIn {...args} />;
+const Template: Story = (args) => (
+  <Registration handleRegistrationChange {...args} />
+);
 
-export const SignInForm = Template.bind({});
-SignInForm.args = {
+export const RegistrationForm = Template.bind({});
+RegistrationForm.args = {
   // primary: true,
   //   label: "Get your ARtopian merch now!",
 };

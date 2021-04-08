@@ -1,7 +1,7 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import ProceedButton, { ButtonProps } from "./";
+import ProceedButton, { ButtonProps } from ".";
 
 export default {
   title: "Components/Atoms/Buttons/Proceed",

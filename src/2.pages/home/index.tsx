@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Home from "../../5.elements/3.templates/home";
+import Home from "../../4.elements/3.templates/home";
 import { UserContext } from "../../0.stores/UserContext";
 // import UserStore from "../../0.stores/UserStore";
 

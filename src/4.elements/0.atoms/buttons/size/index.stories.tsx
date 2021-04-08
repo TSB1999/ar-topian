@@ -1,7 +1,7 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import SizeButton, { ButtonProps } from "./";
+import SizeButton, { ButtonProps } from ".";
 
 export default {
   title: "Components/Atoms/Buttons/Size",

@@ -1,7 +1,7 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import { SubmitButton, ButtonProps } from "./";
+import { SubmitButton, ButtonProps } from ".";
 
 export default {
   title: "Components/Atoms/Buttons/Submit",

@@ -1,6 +1,6 @@
 import { Story, Meta } from "@storybook/react";
 
-import { ButtonPair, TextProps } from "./";
+import { ButtonPair, TextProps } from ".";
 
 export default {
   title: "Components/Molecules/ButtonPair",

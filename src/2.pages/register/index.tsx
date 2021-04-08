@@ -1,6 +1,6 @@
 import React from "react";
-import Register from "../../5.elements/3.templates/register";
-import useRegister from "../../3.hooks/useRegister";
+import Register from "../../4.elements/3.templates/register";
+import useRegister from "../../5.hooks/useRegister";
 
 export default function REGISTER__PAGE() {
   const { ...props } = useRegister();

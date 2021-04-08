@@ -1,7 +1,7 @@
 import { Story, Meta } from "@storybook/react";
 import React from "react";
 
-import SortingFilter, { FilterProps } from "./";
+import SortingFilter, { FilterProps } from ".";
 
 export default {
   title: "Components/Molecules/SortingFilter",
