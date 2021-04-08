@@ -1,6 +1,6 @@
 import "./styles.css";
 
-export default function Menu({ ...props }) {
+export default function MenuIcon({ ...props }) {
   let size;
   switch (props.size) {
     case "small":

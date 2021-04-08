@@ -1,17 +1,17 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import { Button, ButtonProps } from "./";
+import { SubmitButton, ButtonProps } from "./";
 
 export default {
   title: "Components/Atoms/Buttons/Submit",
-  component: Button,
+  component: SubmitButton,
   argTypes: {
     backgroundColor: { control: "color" },
   },
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => <SubmitButton {...args} />;
 
 export const SignIn = Template.bind({});
 SignIn.args = {

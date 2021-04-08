@@ -1,6 +1,6 @@
 import "./styles.css";
 
-export default function Basket({ ...props }) {
+export default function BasketIcon({ ...props }) {
   let size;
   switch (props.size) {
     case "small":

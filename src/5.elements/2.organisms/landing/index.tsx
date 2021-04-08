@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from "../../0.atoms/text/heading";
 import SubHeading from "../../0.atoms/text/subheading";
-import ButtonPair from "../../1.molecules/landing-buttons";
+import ButtonPair from "../../1.molecules/button-pair";
 
 import "./styles.css";
 export interface LandingProps {

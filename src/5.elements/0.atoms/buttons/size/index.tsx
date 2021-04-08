@@ -8,7 +8,7 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const SizeButton: React.FC<ButtonProps> = ({
   selected = false,
   backgroundColor,
   label,
@@ -27,4 +27,4 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default SizeButton;

@@ -10,7 +10,7 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const SubmitButton: React.FC<ButtonProps> = ({
   // primary = false,
   theme = "dark",
   size = "medium",
@@ -34,4 +34,4 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default SubmitButton;

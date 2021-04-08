@@ -4,7 +4,7 @@ export interface FilterProps {
   setting: string;
 }
 
-export const SortingFilter: React.FC<FilterProps> = ({ ...props }) => {
+export const QueryFilter: React.FC<FilterProps> = ({ ...props }) => {
   return (
     <div style={{ display: "flex" }}>
       <div
@@ -42,4 +42,4 @@ export const SortingFilter: React.FC<FilterProps> = ({ ...props }) => {
   );
 };
 
-export default SortingFilter;
+export default QueryFilter;

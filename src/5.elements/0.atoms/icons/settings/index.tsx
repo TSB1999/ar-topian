@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-export default function Settings({ ...props }) {
+export default function SettingsIcon({ ...props }) {
   let size;
   switch (props.size) {
     case "small":

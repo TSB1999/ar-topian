@@ -1,6 +1,6 @@
 import React from "react";
 
-import Basket from "./index";
+import BasketIcon from "./index";
 
 export default {
   title: "Example/Icon",
@@ -10,7 +10,7 @@ export default {
   //   },
 };
 
-const Template = (args) => <Basket {...args} />;
+const Template = (args) => <BasketIcon {...args} />;
 
 export const Standard = Template.bind({});
 // Standard.args = {

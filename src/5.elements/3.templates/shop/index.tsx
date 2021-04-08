@@ -1,5 +1,5 @@
 import React from "react";
-import Sort from "../../1.molecules/sorting-filter";
+import Sort from "../../1.molecules/query-filter";
 import Container from "../../0.atoms/containers";
 import Proceed from "../../0.atoms/buttons/proceed";
 import SizeButton from "../../0.atoms/buttons/size";

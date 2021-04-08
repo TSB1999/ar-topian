@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../../0.atoms/logos";
-import Options from "../../1.molecules/options";
+import Options from "../../1.molecules/menu-options";
 
 import "./styles.css";
 

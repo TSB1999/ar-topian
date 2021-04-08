@@ -1,14 +1,13 @@
 import React from "react";
-import ButtonPair from "../../1.molecules/landing-buttons";
+import ButtonPair from "../../1.molecules/button-pair";
 import "./styles.css";
 
 interface RegistrationProps {
   handleRegistrationChange: any;
 }
 
-export const RegistrationElement: React.FC<RegistrationProps> = ({
+export const RegistrationForm: React.FC<RegistrationProps> = ({
   handleRegistrationChange,
-  ...props
 }) => {
   return (
     <div>
@@ -60,4 +59,4 @@ export const RegistrationElement: React.FC<RegistrationProps> = ({
   );
 };
 
-export default RegistrationElement;
+export default RegistrationForm;

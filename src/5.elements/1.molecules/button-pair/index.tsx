@@ -13,7 +13,7 @@ export interface TextProps {
 
 export const ButtonPair: React.FC<TextProps> = ({ ...props }) => {
   return (
-    <div className="landing-buttons">
+    <div className="buttons">
       <div>
         <Link to={props.firstRoute}>
           <SubmitButton label={props.lightLabel} theme="light" />

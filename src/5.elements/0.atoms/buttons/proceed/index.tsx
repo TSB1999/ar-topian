@@ -9,7 +9,7 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Proceed: React.FC<ButtonProps> = ({
+export const ProceedButton: React.FC<ButtonProps> = ({
   selected = false,
   backgroundColor,
   label,
@@ -33,4 +33,4 @@ export const Proceed: React.FC<ButtonProps> = ({
   );
 };
 
-export default Proceed;
+export default ProceedButton;

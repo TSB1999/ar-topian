@@ -1,8 +1,8 @@
 import React from "react";
-import ButtonPair from "../../1.molecules/landing-buttons";
+import ButtonPair from "../../1.molecules/button-pair";
 import "./styles.css";
 
-export default function SignInElement() {
+export default function SignInForm() {
   return (
     <div>
       <form
