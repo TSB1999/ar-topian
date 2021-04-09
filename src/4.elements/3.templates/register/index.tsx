@@ -17,7 +17,7 @@ export default function Register({ handleRegistrationChange }) {
       </div>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Registration handleRegistrationChange={handleRegistrationChange} />
+        {/* <Registration handleRegistrationChange={handleRegistrationChange} /> */}
       </div>
 
       <div>

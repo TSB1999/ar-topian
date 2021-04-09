@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => (
-  <Registration handleRegistrationChange {...args} />
+  <Registration handleRegistrationChange useSubmitRegistration {...args} />
 );
 
 export const RegistrationForm = Template.bind({});

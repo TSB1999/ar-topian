@@ -1,24 +1,39 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import useSWR from "swr";
+import { REGISTER_USER } from "../../1.authentication";
+import registration from "../../4.elements/2.organisms/registration";
 interface RegistrationProps {
-  name: string | null;
+  username: string | null;
   email: string | null;
   password: string | null;
-  confirm_password: string | null;
+  confirmPassword: string | null;
 }
+
+const fetcher = (...args) => {
+  axios
+    .post(args[0], registration)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
 
 export const useRegister = () => {
   const [registration, setRegistration] = useState<RegistrationProps>({
-    name: null,
+    username: null,
     email: null,
     password: null,
-    confirm_password: null,
+    confirmPassword: null,
   });
+
+  const { data, error } = useSWR(REGISTER_USER, fetcher);
 
   useEffect(() => {
     console.log(registration);
   }, [registration]);
-
-  // Registration here (firebase)
 
   return {
     registration,
@@ -27,7 +42,7 @@ export const useRegister = () => {
         case "name":
           setRegistration({
             ...registration,
-            name: e.target.value,
+            username: e.target.value,
           });
           break;
         case "email":
@@ -45,12 +60,13 @@ export const useRegister = () => {
         case "confirm_password":
           setRegistration({
             ...registration,
-            confirm_password: e.target.value,
+            confirmPassword: e.target.value,
           });
           break;
         default:
       }
     },
+    useSubmitRegistration: () => console.log(data),
   };
 };
 

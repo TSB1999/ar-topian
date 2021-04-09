@@ -2,12 +2,16 @@ import React from "react";
 import ButtonPair from "../../1.molecules/button-pair";
 import "./styles.css";
 
+import { registrationFormContent } from "./utilities";
+
 interface RegistrationProps {
   handleRegistrationChange: any;
+  useSubmitRegistration: any;
 }
 
 export const RegistrationForm: React.FC<RegistrationProps> = ({
   handleRegistrationChange,
+  useSubmitRegistration,
 }) => {
   return (
     <div>
@@ -18,33 +22,20 @@ export const RegistrationForm: React.FC<RegistrationProps> = ({
           console.log("hi");
         }}
       >
-        <label>FULL NAME</label>
-        <input
-          type="text"
-          name="name"
-          onChange={(e) => handleRegistrationChange(e, "name")}
-        />
-
-        <label>EMAIL</label>
-        <input
-          type="email"
-          name="email"
-          onChange={(e) => handleRegistrationChange(e, "email")}
-        />
-
-        <label>PASSWORD</label>
-        <input
-          type="password"
-          name="password"
-          onChange={(e) => handleRegistrationChange(e, "password")}
-        />
-
-        <label>CONFIRM PASSWORD</label>
-        <input
-          type="password"
-          name="confirm_password"
-          onChange={(e) => handleRegistrationChange(e, "confirm_password")}
-        />
+        {registrationFormContent(handleRegistrationChange).map(
+          (section, key) => {
+            return (
+              <div className="registration-form">
+                <label>{section.label}</label>
+                <input
+                  type={section.type}
+                  name={section.name}
+                  onChange={section.onChange}
+                />
+              </div>
+            );
+          }
+        )}
 
         <div className="registration-form__buttons">
           <ButtonPair
@@ -52,6 +43,7 @@ export const RegistrationForm: React.FC<RegistrationProps> = ({
             secondRoute="/"
             lightLabel="BACK"
             darkLabel="REGISTER"
+            useSubmitRegistration={useSubmitRegistration}
           />
         </div>
       </form>

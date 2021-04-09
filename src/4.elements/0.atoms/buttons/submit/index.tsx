@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 export interface ButtonProps {
-  // primary?: boolean;
+  useSubmitRegistration?: any;
   theme: "light" | "dark";
   backgroundColor?: string;
   size?: "small" | "medium" | "large";
@@ -16,6 +16,7 @@ export const SubmitButton: React.FC<ButtonProps> = ({
   size = "medium",
   backgroundColor,
   label,
+  useSubmitRegistration,
   ...props
 }) => {
   return (
@@ -27,6 +28,7 @@ export const SubmitButton: React.FC<ButtonProps> = ({
         `submit-button--${theme}`,
       ].join(" ")}
       style={{ backgroundColor }}
+      onClick={useSubmitRegistration}
       {...props}
     >
       {label}
