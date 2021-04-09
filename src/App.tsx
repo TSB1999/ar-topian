@@ -1,13 +1,13 @@
 import { useState } from "react";
 // import "./4.styles/main.scss";
-import { UserContext } from "./0.stores/UserContext";
-import Navbar from "./4.elements/2.organisms/navbar";
+import { UserContext } from "./1.stores/UserContext";
+import Navbar from "./5.elements/2.organisms/navbar";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import Home from "./2.pages/home";
-import Register from "./2.pages/register";
-import SignIn from "./2.pages/sign_in";
-import Shop from "./2.pages/shop";
-import Checkout from "./2.pages/checkout";
+import Home from "./3.pages/home";
+import Register from "./3.pages/register";
+import SignIn from "./3.pages/sign_in";
+import Shop from "./3.pages/shop";
+import Checkout from "./3.pages/checkout";
 
 function App() {
   const [userData, setUserData] = useState({
