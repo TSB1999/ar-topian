@@ -10,7 +10,11 @@ import Shop from "./2.pages/shop";
 import Checkout from "./2.pages/checkout";
 
 function App() {
-  const [userData, setUserData] = useState("hellowee");
+  const [userData, setUserData] = useState({
+    loading: false,
+    loggedIn: false,
+    username: "",
+  });
   return (
     <div className="App">
       <Router>

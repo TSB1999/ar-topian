@@ -9,6 +9,8 @@ export const createUser = (route, form) => {
     })
     .then((res) => {
       console.log(res.data);
+
+      // page redirect
     })
     .catch((err) => {
       console.log(err);
