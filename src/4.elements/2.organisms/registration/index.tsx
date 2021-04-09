@@ -25,7 +25,7 @@ export const RegistrationForm: React.FC<RegistrationProps> = ({
         {registrationFormContent(handleRegistrationChange).map(
           (section, key) => {
             return (
-              <div className="registration-form">
+              <div className="registration-form" key={key}>
                 <label>{section.label}</label>
                 <input
                   type={section.type}
