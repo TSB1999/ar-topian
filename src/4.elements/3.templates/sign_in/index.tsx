@@ -16,7 +16,7 @@ export default function SignIn() {
       </div>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <SignInElement />
+        {/* <SignInElement /> / */}
       </div>
 
       <div>

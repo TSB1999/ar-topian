@@ -1,12 +1,10 @@
 import React from "react";
-import Register from "../../4.elements/3.templates/register";
-import useRegister from "../../5.hooks/useRegister";
+import RegistrationForm from "../../3.containers/registrationFormView";
 
 export default function REGISTER__PAGE() {
-  const { ...props } = useRegister();
   return (
     <div>
-      <Register {...props} />
+      <RegistrationForm />
     </div>
   );
 }

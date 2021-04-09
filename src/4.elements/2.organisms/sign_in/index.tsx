@@ -2,7 +2,7 @@ import React from "react";
 import ButtonPair from "../../1.molecules/button-pair";
 import "./styles.css";
 
-export default function SignInForm() {
+export default function SignInForm({ handleSignInChange }) {
   return (
     <div>
       <form
@@ -13,10 +13,18 @@ export default function SignInForm() {
         }}
       >
         <label>EMAIL</label>
-        <input type="email" name="email" /**value */ />
+        <input
+          type="email"
+          name="email"
+          onChange={(e) => handleSignInChange(e, "email")}
+        />
 
         <label>PASSWORD</label>
-        <input type="password" name="password" /**value */ />
+        <input
+          type="password"
+          name="password"
+          onChange={(e) => handleSignInChange(e, "password")}
+        />
 
         <div className="sign-in-form__buttons">
           <ButtonPair

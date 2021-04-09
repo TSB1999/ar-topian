@@ -11,10 +11,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => <SignIn {...args} />;
+const Template: Story = (args) => <SignIn handleSignInChange {...args} />;
 
 export const SignInForm = Template.bind({});
-SignInForm.args = {
-  // primary: true,
-  //   label: "Get your ARtopian merch now!",
-};
+SignInForm.args = {};
