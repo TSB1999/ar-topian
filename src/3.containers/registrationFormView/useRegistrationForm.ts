@@ -3,6 +3,7 @@ import axios from "axios";
 import useSWR from "swr";
 import { REGISTER_USER } from "../../1.authentication";
 import registration from "../../4.elements/2.organisms/registration";
+
 interface RegistrationProps {
   username: string | null;
   email: string | null;
@@ -30,6 +31,30 @@ export const useRegister = () => {
   });
 
   const { data, error } = useSWR(REGISTER_USER, fetcher);
+
+  const test = () => {
+    axios
+      .post(
+        "/register",
+        {
+          username: "TSgB62",
+          email: "tshbevry@hotmail.com",
+          password: "f343444f",
+          confirmPassword: "f343444f",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     console.log(registration);
@@ -66,7 +91,7 @@ export const useRegister = () => {
         default:
       }
     },
-    useSubmitRegistration: () => console.log(data),
+    handleRegistrationSubmit: () => test(),
   };
 };
 

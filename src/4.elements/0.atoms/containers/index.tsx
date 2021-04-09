@@ -5,28 +5,22 @@ export interface ContainerProps {
   display: "flex" | "grid";
   backgroundColor?: string;
   color?: string;
-  height: string;
-  width: string;
   margin?: string;
   padding?: string;
-  noOfColumns?: number;
-  noOfRows?: number;
   justifyContent?: string;
+  flexDirection?: any;
   alignItems?: string;
+  gridTemplateRows?: string;
+  gridTemplateColumns?: string;
 }
 
-export const Container: React.FC<ContainerProps> = ({
-  noOfColumns,
-  noOfRows,
-  children,
-  ...props
-}) => {
+export const Container: React.FC<ContainerProps> = ({ children, ...props }) => {
   return (
     <div
       className="container"
       style={{
-        gridTemplateColumns: `repeat(${noOfColumns}, 1fr)`,
-        gridTemplateRows: `repeat(${noOfRows}, 1fr)`,
+        height: "100%",
+        width: "100%",
         ...props,
       }}
     >

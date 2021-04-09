@@ -6,12 +6,12 @@ import { registrationFormContent } from "./utilities";
 
 interface RegistrationProps {
   handleRegistrationChange: any;
-  useSubmitRegistration: any;
+  handleRegistrationSubmit: any;
 }
 
 export const RegistrationForm: React.FC<RegistrationProps> = ({
   handleRegistrationChange,
-  useSubmitRegistration,
+  handleRegistrationSubmit,
 }) => {
   return (
     <div>
@@ -43,7 +43,7 @@ export const RegistrationForm: React.FC<RegistrationProps> = ({
             secondRoute="/"
             lightLabel="BACK"
             darkLabel="REGISTER"
-            useSubmitRegistration={useSubmitRegistration}
+            handleRegistrationSubmit={handleRegistrationSubmit}
           />
         </div>
       </form>

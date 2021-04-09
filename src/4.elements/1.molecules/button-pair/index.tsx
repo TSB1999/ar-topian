@@ -4,7 +4,7 @@ import SubmitButton from "../../0.atoms/buttons/submit";
 import { Link } from "react-router-dom";
 
 export interface TextProps {
-  useSubmitRegistration?: any;
+  handleRegistrationSubmit?: any;
   lightLabel: string;
   darkLabel: string;
   firstRoute: string;
@@ -13,22 +13,24 @@ export interface TextProps {
 }
 
 export const ButtonPair: React.FC<TextProps> = ({
-  useSubmitRegistration,
-  ...props
+  handleRegistrationSubmit,
+  firstRoute,
+  lightLabel,
+  darkLabel,
 }) => {
   return (
     <div className="buttons">
       <div>
-        <Link to={props.firstRoute}>
-          <SubmitButton label={props.lightLabel} theme="light" />
+        <Link to={firstRoute}>
+          <SubmitButton label={lightLabel} theme="light" />
         </Link>
       </div>
       <div>
         {/* <Link to={props.secondRoute}> */}
         <SubmitButton
-          label={props.darkLabel}
+          label={darkLabel}
           theme="dark"
-          useSubmitRegistration={useSubmitRegistration}
+          useSubmitRegistration={handleRegistrationSubmit}
         />
         {/* </Link> */}
       </div>

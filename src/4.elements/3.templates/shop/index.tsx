@@ -23,12 +23,7 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
       </div>
 
       <div style={{ marginBottom: "1rem" }}>
-        <Container
-          display="grid"
-          height="40vh"
-          width="80vw"
-          backgroundColor="#C4C4C4"
-        ></Container>
+        <Container display="grid" backgroundColor="#C4C4C4"></Container>
       </div>
 
       <div style={{ marginBottom: "1rem" }}>
@@ -36,13 +31,7 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
       </div>
 
       <div style={{ marginBottom: "1rem" }}>
-        <Container
-          display="grid"
-          height="15vh"
-          width="80vw"
-          backgroundColor="#C4C4C4"
-          noOfColumns={4}
-        >
+        <Container display="grid" backgroundColor="#C4C4C4">
           <div className="shop__button">
             <SizeButton label="S" selected={false} />
           </div>
@@ -59,15 +48,7 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
       </div>
 
       <div>
-        <Container
-          display="grid"
-          height="20vh"
-          width="100vw"
-          backgroundColor="#000"
-          noOfColumns={1}
-          noOfRows={3}
-          color="#fff"
-        >
+        <Container display="grid" backgroundColor="#000" color="#fff">
           <div className="shop__footer">
             <div style={{ marginBottom: "1rem" }}>${` ${total}`}</div>
             <div style={{ marginBottom: "1rem" }}>
