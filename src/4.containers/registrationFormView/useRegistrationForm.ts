@@ -3,6 +3,7 @@ import { REGISTER_ROUTE } from "../../0.api";
 import { updateRegistrationState } from "./handlers";
 import { createUser } from "../../2.authentication";
 import UserContext from "../../1.stores/UserContext";
+import { useHistory } from "react-router-dom";
 
 interface RegistrationState {
   username: string | null;
@@ -28,21 +29,29 @@ export const useRegister = () => {
     console.log(registrationForm);
   }, [registrationForm]);
 
+  const history = useHistory();
+
   const handleRegistrationChange = (e, key) =>
     updateRegistrationState(e, key, registrationForm, setRegistrationForm);
 
-  const handleRegistrationSubmit = () => {
+  async function handleRegistrationSubmit() {
     setUserData({
       ...userData,
       loading: true,
     });
-    createUser(REGISTER_ROUTE, registrationForm);
-    setUserData({
-      ...userData,
-      loggedIn: true,
-      username: registrationForm.username,
-    });
-  };
+    const data = await createUser(REGISTER_ROUTE, registrationForm);
+    if (data !== false) {
+      setUserData({
+        ...userData,
+        loggedIn: true,
+        username: registrationForm.username,
+      });
+
+      history.push("/");
+    } else {
+      // alert("somethings wrong");
+    }
+  }
 
   return {
     handleRegistrationChange,
