@@ -6,7 +6,9 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./3.pages/home";
 import Register from "./3.pages/register";
 import SignIn from "./3.pages/sign_in";
+import ARtopian from "./3.pages/ar_topian";
 import Shop from "./3.pages/shop";
+import ShopItem from "./3.pages/shop_item";
 import Checkout from "./3.pages/checkout";
 
 function App() {
@@ -23,8 +25,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/sign-in" component={SignIn} />
+          <Route exact path="/ar-topian" component={ARtopian} />
           <Route exact path="/shop" component={Shop} />
-          {/* <Route exact path="/shop/item" component={Home} /> */}
+          <Route exact path="/shop/item" component={ShopItem} />
           <Route exact path="/checkout" component={Checkout} />
         </UserContext.Provider>
       </Router>

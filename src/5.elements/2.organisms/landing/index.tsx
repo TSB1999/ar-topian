@@ -20,22 +20,14 @@ export const Landing: React.FC<LandingProps> = ({ ...props }) => {
       </div>
       <div style={{ marginBottom: "1rem" }}>
         {userData.loggedIn ? (
-          // <ButtonPair
-          //   type="other"
-          //   firstRoute="/register"
-          //   secondRoute="/sign-in"
-          //   lightLabel="Info"
-          //   darkLabel="Shop"
-          // />
-
           <div className="landing__buttons">
             <div>
-              <Link to="/register">
-                <SubmitButton label="Info" theme="light" type="other" />
+              <Link to="/ar-topian">
+                <SubmitButton label="ARtopian" theme="light" type="other" />
               </Link>
             </div>
             <div>
-              <Link to="/sign-in">
+              <Link to="/shop">
                 <SubmitButton type="other" label="Shop" theme="dark" />
               </Link>
             </div>
