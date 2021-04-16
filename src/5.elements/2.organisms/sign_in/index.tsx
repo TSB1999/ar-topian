@@ -1,8 +1,17 @@
 import React from "react";
-import ButtonPair from "../../1.molecules/button-pair";
+import SubmitButton from "../../0.atoms/buttons/submit";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
-export default function SignInForm({ handleSignInChange }) {
+interface RegistrationProps {
+  handleSignInChange: any;
+  handleSignInSubmit: any;
+}
+
+export const SignInForm: React.FC<RegistrationProps> = ({
+  handleSignInChange,
+  handleSignInSubmit,
+}) => {
   return (
     <div>
       <form
@@ -27,14 +36,23 @@ export default function SignInForm({ handleSignInChange }) {
         />
 
         <div className="sign-in-form__buttons">
-          <ButtonPair
-            firstRoute="/"
-            secondRoute="/"
-            lightLabel="BACK"
-            darkLabel="SIGN IN"
-          />
+          <div>
+            <Link to="/">
+              <SubmitButton label="back" theme="light" type="other" />
+            </Link>
+          </div>
+          <div>
+            <SubmitButton
+              type="sign in"
+              label="Sign In"
+              theme="dark"
+              handleSignInSubmit={handleSignInSubmit}
+            />
+          </div>
         </div>
       </form>
     </div>
   );
-}
+};
+
+export default SignInForm;

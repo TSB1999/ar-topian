@@ -1,40 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { logInUser } from "../../2.authentication";
+
+import UserContext from "../../1.stores/UserContext";
+import { useHistory } from "react-router-dom";
+
 interface SignInProps {
   email: string | null;
   password: string | null;
 }
 
 export const useSignIn = () => {
-  const [signIn, setSignIn] = useState<SignInProps>({
+  const [signInForm, setSignInForm] = useState<SignInProps>({
     email: null,
     password: null,
   });
 
-  useEffect(() => {
-    console.log(signIn);
-  }, [signIn]);
+  const { userData, setUserData } = useContext(UserContext);
 
-  // Registration here (firebase)
+  useEffect(() => {
+    console.log(signInForm);
+  }, [signInForm]);
+
+  const history = useHistory();
+
+  const handleSignInChange = (e, key) => {
+    switch (key) {
+      case "email":
+        setSignInForm({
+          ...signInForm,
+          email: e.target.value,
+        });
+        break;
+      case "password":
+        setSignInForm({
+          ...signInForm,
+          password: e.target.value,
+        });
+        break;
+      default:
+    }
+  };
+
+  async function handleSignInSubmit() {
+    // setUserData({
+    //   ...userData,
+    //   loading: true,
+    // });
+    const data = await logInUser(signInForm);
+    if (data !== false) {
+      setUserData({
+        ...userData,
+        loggedIn: true,
+        // username: si.username,
+      });
+      history.push("/");
+    } else {
+      // alert("somethings wrong");
+    }
+  }
 
   return {
-    signIn,
-    handleSignInChange: (e, key) => {
-      switch (key) {
-        case "email":
-          setSignIn({
-            ...signIn,
-            email: e.target.value,
-          });
-          break;
-        case "password":
-          setSignIn({
-            ...signIn,
-            password: e.target.value,
-          });
-          break;
-        default:
-      }
-    },
+    handleSignInChange,
+    handleSignInSubmit,
   };
 };
 

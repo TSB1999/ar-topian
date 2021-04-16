@@ -1,17 +1,19 @@
 import React from "react";
-import ButtonPair from "../../1.molecules/button-pair";
+import SubmitButton from "../../0.atoms/buttons/submit";
 import "./styles.css";
-
+import { Link } from "react-router-dom";
 import { registrationFormContent } from "./utilities";
 
 interface RegistrationProps {
   handleRegistrationChange: any;
   handleRegistrationSubmit: any;
+  registrationForm: any;
 }
 
 export const RegistrationForm: React.FC<RegistrationProps> = ({
   handleRegistrationChange,
   handleRegistrationSubmit,
+  registrationForm,
 }) => {
   return (
     <div>
@@ -38,13 +40,19 @@ export const RegistrationForm: React.FC<RegistrationProps> = ({
         )}
 
         <div className="registration-form__buttons">
-          <ButtonPair
-            firstRoute="/"
-            secondRoute="/"
-            lightLabel="BACK"
-            darkLabel="REGISTER"
-            handleRegistrationSubmit={handleRegistrationSubmit}
-          />
+          <div>
+            <Link to="/">
+              <SubmitButton label="Back" theme="light" type="other" />
+            </Link>
+          </div>
+          <div>
+            <SubmitButton
+              type="register"
+              label="Register"
+              theme="dark"
+              handleRegistrationSubmit={handleRegistrationSubmit}
+            />
+          </div>
         </div>
       </form>
     </div>

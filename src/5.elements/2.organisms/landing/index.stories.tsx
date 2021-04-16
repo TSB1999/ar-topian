@@ -16,5 +16,4 @@ const Template: Story<LandingProps> = (args) => <Landing_Section {...args} />;
 export const Landing = Template.bind({});
 Landing.args = {
   // primary: true,
-  label: "Get your ARtopian merch now!",
 };

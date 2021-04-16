@@ -39,7 +39,7 @@ export const useRegister = () => {
       ...userData,
       loading: true,
     });
-    const data = await createUser(REGISTER_ROUTE, registrationForm);
+    const data = await createUser(registrationForm);
     if (data !== false) {
       setUserData({
         ...userData,
@@ -54,6 +54,7 @@ export const useRegister = () => {
   }
 
   return {
+    registrationForm,
     handleRegistrationChange,
     handleRegistrationSubmit,
   };

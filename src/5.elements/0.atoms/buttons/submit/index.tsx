@@ -2,7 +2,9 @@ import React from "react";
 import "./styles.css";
 
 export interface ButtonProps {
-  useSubmitRegistration?: any;
+  type: "register" | "sign in" | "other";
+  handleRegistrationSubmit?: any;
+  handleSignInSubmit?: any;
   theme: "light" | "dark";
   backgroundColor?: string;
   size?: "small" | "medium" | "large";
@@ -16,9 +18,13 @@ export const SubmitButton: React.FC<ButtonProps> = ({
   size = "medium",
   backgroundColor,
   label,
-  useSubmitRegistration,
+  handleRegistrationSubmit,
+  handleSignInSubmit,
+  type,
   ...props
 }) => {
+  const mode =
+    type === "register" ? handleRegistrationSubmit : handleSignInSubmit;
   return (
     <button
       type="button"
@@ -28,7 +34,7 @@ export const SubmitButton: React.FC<ButtonProps> = ({
         `submit-button--${theme}`,
       ].join(" ")}
       style={{ backgroundColor }}
-      onClick={useSubmitRegistration}
+      onClick={mode}
       {...props}
     >
       {label}
