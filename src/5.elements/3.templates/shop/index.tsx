@@ -1,6 +1,6 @@
 import React from "react";
 import Sort from "../../1.molecules/query-filter";
-import Container from "../../0.atoms/containers";
+// import Container from "../../0.atoms/containers";
 import Proceed from "../../0.atoms/buttons/proceed";
 import SizeButton from "../../0.atoms/buttons/size";
 
@@ -23,7 +23,7 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
       </div>
 
       <div style={{ marginBottom: "1rem" }}>
-        <Container display="grid" backgroundColor="#C4C4C4"></Container>
+        {/* <Container display="grid" backgroundColor="#C4C4C4"></Container> */}
       </div>
 
       <div style={{ marginBottom: "1rem" }}>
@@ -31,7 +31,7 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
       </div>
 
       <div style={{ marginBottom: "1rem" }}>
-        <Container display="grid" backgroundColor="#C4C4C4">
+        {/* <Container display="grid" backgroundColor="#C4C4C4">
           <div className="shop__button">
             <SizeButton label="S" selected={false} />
           </div>
@@ -44,11 +44,11 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
           <div className="shop__button">
             <SizeButton label="XL" selected={false} />
           </div>
-        </Container>
+        </Container> */}
       </div>
 
       <div>
-        <Container display="grid" backgroundColor="#000" color="#fff">
+        {/* <Container display="grid" backgroundColor="#000" color="#fff">
           <div className="shop__footer">
             <div style={{ marginBottom: "1rem" }}>${` ${total}`}</div>
             <div style={{ marginBottom: "1rem" }}>
@@ -56,7 +56,7 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
             </div>
             <div>developed by TSB M3DIA</div>
           </div>
-        </Container>
+        </Container> */}
       </div>
     </div>
   );
