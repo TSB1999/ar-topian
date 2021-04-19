@@ -2,6 +2,7 @@ import { useState } from "react";
 // import "./4.styles/main.scss";
 import { UserContext } from "./1.stores/UserContext";
 import Navbar from "./5.elements/2.organisms/navbar";
+import Alert from "./5.elements/0.atoms/misc/alert";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./3.pages/home";
 import Register from "./3.pages/register";
@@ -21,6 +22,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
+        <Alert />
         <UserContext.Provider value={{ userData, setUserData }}>
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
