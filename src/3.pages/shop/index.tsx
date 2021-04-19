@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Flex from "../../5.elements/0.atoms/containers/flex";
 import Grid from "../../5.elements/0.atoms/containers/grid";
 import Sort from "../../5.elements/1.molecules/query-filter";
+import { Link } from "react-router-dom";
 
-export default function Shop() {
+export default function Shop({ items, ...props }) {
   return (
     <div className="shop">
       <div
         style={{
+          display: "flex",
+          justifyContent: "center",
           marginTop: "1rem",
           marginBottom: "1rem",
         }}
@@ -16,15 +20,36 @@ export default function Shop() {
       </div>
 
       <Grid noOfColumns={2} gridGap="1rem">
-        <div
-          style={{ height: "20vh", width: "100%", backgroundColor: "red" }}
-        ></div>
-        <div
-          style={{ height: "20vh", width: "100%", backgroundColor: "red" }}
-        ></div>
-        <div
-          style={{ height: "20vh", width: "100%", backgroundColor: "red" }}
-        ></div>
+        {items.map((item: any, key) => {
+          return (
+            <Link to="/shop/item">
+              <div
+                key={key}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "20vh",
+                  width: "100%",
+                }}
+              >
+                <div style={{ flex: 3, backgroundColor: "red" }}>
+                  developed by TSB M3DIA
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flex: 1,
+                    backgroundColor: "blue",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  {item.name}
+                </div>
+              </div>
+            </Link>
+          );
+        })}
       </Grid>
 
       <Flex flexDirection="column" backgroundColor="#000" color="#fff">

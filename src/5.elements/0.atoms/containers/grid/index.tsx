@@ -37,6 +37,7 @@ export const GridContainer: React.FC<GridProps> = ({
         backgroundColor,
         padding,
         gridGap,
+        margin,
       }}
     >
       {children}
