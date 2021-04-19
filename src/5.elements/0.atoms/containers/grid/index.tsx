@@ -9,6 +9,7 @@ export interface GridProps {
   alignItems?: string;
   noOfColumns?: number;
   noOfRows?: number;
+  gridGap?: string;
 }
 
 export const GridContainer: React.FC<GridProps> = ({
@@ -21,6 +22,7 @@ export const GridContainer: React.FC<GridProps> = ({
   children,
   noOfColumns,
   noOfRows,
+  gridGap,
   ...props
 }) => {
   return (
@@ -34,6 +36,7 @@ export const GridContainer: React.FC<GridProps> = ({
         gridTemplateRows: `repeat(${noOfRows}, 1fr)`,
         backgroundColor,
         padding,
+        gridGap,
       }}
     >
       {children}
