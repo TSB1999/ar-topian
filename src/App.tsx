@@ -48,7 +48,7 @@ function App() {
           <Route exact path="/sign-in" component={SignIn} />
           <Route exact path="/ar-topian" component={ARtopian} />
           <Route exact path="/shop" component={() => Shop({ items })} />
-          <Route exact path="/shop/item" component={ShopItem} />
+          <Route exact path="/shop/:item" component={ShopItem} />
           <Route exact path="/basket" component={Basket} />
         </UserContext.Provider>
       </Router>

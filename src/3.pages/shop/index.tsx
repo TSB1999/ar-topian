@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 
 export default function Shop({ items, ...props }) {
   return (
-    <div className="shop">
+    <div style={{ background: "#7e7e7e" }}>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          marginTop: "1rem",
+          paddingTop: "1rem",
           marginBottom: "1rem",
         }}
       >
@@ -22,7 +22,7 @@ export default function Shop({ items, ...props }) {
       <Grid noOfColumns={2} gridGap="1rem">
         {items.map((item: any, key) => {
           return (
-            <Link to="/shop/item">
+            <Link to={`/shop/${item.name}`}>
               <div
                 key={key}
                 style={{
