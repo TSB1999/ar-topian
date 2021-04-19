@@ -6,14 +6,22 @@ import SubHeading from "../../5.elements/0.atoms/text/subheading";
 
 export default function REGISTER__PAGE() {
   return (
-    <Layout flexDirection="column" alignItems="center" justifyContent="center">
-      <Heading
-        color="#0F0F0F"
-        textShadow="none"
-        label="One step away from your experience!"
-      />
-      <RegistrationForm />
-      <SubHeading label="ALREADY HAVE AN ACCOUNT? SIGN IN" />
-    </Layout>
+    <div style={{ padding: "1rem" }}>
+      <Layout
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Heading
+          color="#0F0F0F"
+          textShadow="none"
+          label="One step away from your experience!"
+        />
+        <RegistrationForm />
+        <div style={{ marginTop: "1rem" }}>
+          <SubHeading label="ALREADY HAVE AN ACCOUNT? SIGN IN" />
+        </div>
+      </Layout>
+    </div>
   );
 }

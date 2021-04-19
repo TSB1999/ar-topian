@@ -6,7 +6,7 @@ import SubHeading from "../../5.elements/0.atoms/text/subheading";
 
 export default function SIGNIN__PAGE() {
   return (
-    <div>
+    <div style={{ padding: "1rem" }}>
       <Layout
         flexDirection="column"
         alignItems="center"
