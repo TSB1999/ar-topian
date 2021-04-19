@@ -9,7 +9,7 @@ import SignIn from "./3.pages/sign_in";
 import ARtopian from "./3.pages/ar_topian";
 import Shop from "./3.pages/shop";
 import ShopItem from "./3.pages/shop_item";
-import Checkout from "./3.pages/checkout";
+import Basket from "./3.pages/basket";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -28,7 +28,7 @@ function App() {
           <Route exact path="/ar-topian" component={ARtopian} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/shop/item" component={ShopItem} />
-          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/basket" component={Basket} />
         </UserContext.Provider>
       </Router>
     </div>
