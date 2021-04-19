@@ -26,7 +26,6 @@ Grid.args = {
   //   backgroundColor: "red",
   justifyContent: "center",
   alignItems: "center",
-  flex: 1,
   noOfColumns: 4,
   noOfRows: 4,
 };

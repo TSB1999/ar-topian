@@ -8,7 +8,8 @@ export interface FlexProps {
   padding?: string;
   justifyContent?: string;
   alignItems?: string;
-  flex: number;
+  flex?: number;
+  height?: string;
 }
 
 export const FlexContainer: React.FC<FlexProps> = ({
@@ -19,6 +20,7 @@ export const FlexContainer: React.FC<FlexProps> = ({
   padding,
   justifyContent,
   alignItems,
+  height,
   children,
   ...props
 }) => {
@@ -27,9 +29,13 @@ export const FlexContainer: React.FC<FlexProps> = ({
       className="container"
       style={{
         display: "flex",
+        flexDirection,
+        alignItems: "center",
         height: "100%",
         width: "100%",
         backgroundColor,
+        padding,
+        color,
       }}
     >
       {children}

@@ -1,7 +1,6 @@
 import React from "react";
 
 export interface GridProps {
-  flexDirection: any;
   backgroundColor?: string;
   color?: string;
   margin?: string;
@@ -10,11 +9,9 @@ export interface GridProps {
   alignItems?: string;
   noOfColumns?: number;
   noOfRows?: number;
-  flex: number;
 }
 
 export const GridContainer: React.FC<GridProps> = ({
-  flexDirection,
   backgroundColor,
   color,
   margin,
@@ -36,6 +33,7 @@ export const GridContainer: React.FC<GridProps> = ({
         gridTemplateColumns: `repeat(${noOfColumns}, 1fr)`,
         gridTemplateRows: `repeat(${noOfRows}, 1fr)`,
         backgroundColor,
+        padding,
       }}
     >
       {children}

@@ -1,14 +1,13 @@
 import React from "react";
 import SignInForm from "../../4.containers/signInFormView";
-// import Layout from "../../5.elements/0.atoms/containers";
+import Layout from "../../5.elements/0.atoms/containers/flex";
 import Heading from "../../5.elements/0.atoms/text/heading";
 import SubHeading from "../../5.elements/0.atoms/text/subheading";
 
 export default function SIGNIN__PAGE() {
   return (
     <div>
-      {/* <Layout
-        display="flex"
+      <Layout
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
@@ -20,7 +19,7 @@ export default function SIGNIN__PAGE() {
         />
         <SignInForm />
         <SubHeading label="DON'T HAVE AN ACCOUNT? REGISTER" />
-      </Layout> */}
+      </Layout>
     </div>
   );
 }

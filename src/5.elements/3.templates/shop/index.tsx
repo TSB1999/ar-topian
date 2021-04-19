@@ -1,6 +1,7 @@
 import React from "react";
 import Sort from "../../1.molecules/query-filter";
-// import Container from "../../0.atoms/containers";
+import Grid from "../../0.atoms/containers/grid";
+import Flex from "../../0.atoms/containers/flex";
 import Proceed from "../../0.atoms/buttons/proceed";
 import SizeButton from "../../0.atoms/buttons/size";
 
@@ -23,15 +24,15 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
       </div>
 
       <div style={{ marginBottom: "1rem" }}>
-        {/* <Container display="grid" backgroundColor="#C4C4C4"></Container> */}
-      </div>
-
-      <div style={{ marginBottom: "1rem" }}>
         <Proceed icon="upload" label="UPLOAD A SHORT CLIP" />
       </div>
 
-      <div style={{ marginBottom: "1rem" }}>
-        {/* <Container display="grid" backgroundColor="#C4C4C4">
+      <Flex flexDirection="column">
+        <div style={{ height: "40vh" }}></div>
+      </Flex>
+
+      <Flex flexDirection="row">
+        <Grid noOfColumns={4} backgroundColor="#C4C4C4" padding="1rem">
           <div className="shop__button">
             <SizeButton label="S" selected={false} />
           </div>
@@ -44,20 +45,18 @@ export const Shop: React.FC<ShopTemplateProps> = ({ total, ...props }) => {
           <div className="shop__button">
             <SizeButton label="XL" selected={false} />
           </div>
-        </Container> */}
-      </div>
+        </Grid>
+      </Flex>
 
-      <div>
-        {/* <Container display="grid" backgroundColor="#000" color="#fff">
-          <div className="shop__footer">
-            <div style={{ marginBottom: "1rem" }}>${` ${total}`}</div>
-            <div style={{ marginBottom: "1rem" }}>
-              <Proceed icon="shopping-basket" label="PROCEED TO CHECKOUT" />
-            </div>
-            <div>developed by TSB M3DIA</div>
+      <Flex flexDirection="column" backgroundColor="#000" color="#fff">
+        <div className="shop__footer">
+          <div style={{ marginBottom: "1rem" }}>${` ${total}`}</div>
+          <div style={{ marginBottom: "1rem" }}>
+            <Proceed icon="shopping-basket" label="PROCEED TO CHECKOUT" />
           </div>
-        </Container> */}
-      </div>
+          <div>developed by TSB M3DIA</div>
+        </div>
+      </Flex>
     </div>
   );
 };
