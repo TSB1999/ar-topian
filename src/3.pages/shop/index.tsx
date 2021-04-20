@@ -1,11 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import UserContext from "../../1.stores/UserContext";
 import axios from "axios";
 import Flex from "../../5.elements/0.atoms/containers/flex";
 import Grid from "../../5.elements/0.atoms/containers/grid";
 import Sort from "../../5.elements/1.molecules/query-filter";
 import { Link } from "react-router-dom";
 
-export default function Shop({ items, ...props }) {
+export default function Shop(props) {
+  const { userData, setUserData } = useContext(UserContext);
+  const items = userData.items;
+
+  const toItem = (item) => {
+    props.history.push(`/shop/${item.name}`);
+    setUserData({
+      ...userData,
+      current: item,
+    });
+  };
   return (
     <div style={{ background: "#7e7e7e" }}>
       <div
@@ -22,7 +33,8 @@ export default function Shop({ items, ...props }) {
       <Grid noOfColumns={2} gridGap="1rem">
         {items.map((item: any, key) => {
           return (
-            <Link to={`/shop/${item.name}`}>
+            // <Link to={`/shop/${item.name}`}>
+            <button onClick={() => toItem(item)}>
               <div
                 key={key}
                 style={{
@@ -47,7 +59,8 @@ export default function Shop({ items, ...props }) {
                   {item.price}
                 </div>
               </div>
-            </Link>
+            </button>
+            // </Link>
           );
         })}
       </Grid>

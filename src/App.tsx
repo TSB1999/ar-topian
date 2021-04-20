@@ -19,6 +19,8 @@ function App() {
     loggedIn: false,
     username: "",
     basket: [],
+    items: [],
+    current: {},
   });
 
   const [items, setItems] = useState<any>([]);
@@ -34,7 +36,10 @@ function App() {
         },
       })
       .then((res) => {
-        setItems(res.data);
+        setUserData({
+          ...userData,
+          items: res.data,
+        });
         console.log(res.data);
       })
       .catch((err) => {
@@ -52,7 +57,7 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/sign-in" component={SignIn} />
           <Route exact path="/ar-topian" component={ARtopian} />
-          <Route exact path="/shop" component={() => Shop({ items })} />
+          <Route exact path="/shop" component={Shop} />
           <Route exact path="/shop/:item" component={ShopItem} />
           <Route exact path="/basket" component={Basket} />
         </UserContext.Provider>

@@ -18,7 +18,7 @@ export default function SHOP__PAGE(props) {
     //  add to local stoarage
     setUserData({
       ...userData,
-      basket: [...userData.basket, name],
+      basket: [...userData.basket, userData.current],
     });
     props.history.push("/shop");
   };

@@ -24,7 +24,7 @@ export default function BASKET_PAGE({ total, ...props }) {
       {basket.map((item, key) => {
         return (
           <div style={{ width: "100%", marginBottom: "1rem" }}>
-            <Flex flexDirection="row">
+            <div style={{ display: "flex", margin: "1rem" }}>
               <div style={{ flex: 1, backgroundColor: "green" }}>
                 <div
                   style={{
@@ -46,11 +46,11 @@ export default function BASKET_PAGE({ total, ...props }) {
                   alignItems: "center",
                 }}
               >
-                <div>{item}</div>
-                <div>developed by TSB M3DIA</div>
-                <div>developed by TSB M3DIA</div>
+                <div>{item.type}</div>
+                <div>{item.name}</div>
+                <div>{item.price}</div>
               </div>
-            </Flex>
+            </div>
           </div>
         );
       })}
