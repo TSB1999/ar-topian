@@ -33,8 +33,10 @@ export default function Shop(props) {
       <Grid noOfColumns={2} gridGap="1rem">
         {items.map((item: any, key) => {
           return (
-            // <Link to={`/shop/${item.name}`}>
-            <button onClick={() => toItem(item)}>
+            <button
+              onClick={() => toItem(item)}
+              style={{ margin: "0.5rem", border: "none" }}
+            >
               <div
                 key={key}
                 style={{
@@ -60,7 +62,6 @@ export default function Shop(props) {
                 </div>
               </div>
             </button>
-            // </Link>
           );
         })}
       </Grid>

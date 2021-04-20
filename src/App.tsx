@@ -11,6 +11,7 @@ import ARtopian from "./3.pages/ar_topian";
 import Shop from "./3.pages/shop";
 import ShopItem from "./3.pages/shop_item";
 import Basket from "./3.pages/basket";
+import Admin from "./3.pages/admin";
 import axios from "axios";
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/shop/:item" component={ShopItem} />
           <Route exact path="/basket" component={Basket} />
+          <Route exact path="/admin" component={Admin} />
         </UserContext.Provider>
       </Router>
     </div>
