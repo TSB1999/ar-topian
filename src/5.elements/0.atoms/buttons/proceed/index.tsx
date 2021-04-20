@@ -14,6 +14,7 @@ export const ProceedButton: React.FC<ButtonProps> = ({
   backgroundColor,
   label,
   icon,
+  onClick,
   ...props
 }) => {
   return (
@@ -21,6 +22,7 @@ export const ProceedButton: React.FC<ButtonProps> = ({
       type="button"
       className={["proceed-button"].join(" ")}
       style={{ backgroundColor }}
+      onClick={onClick}
       {...props}
     >
       <div className="proceed-button__icon">

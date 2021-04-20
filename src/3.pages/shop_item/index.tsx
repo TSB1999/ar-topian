@@ -1,20 +1,39 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "../../1.stores/UserContext";
 import Sort from "../../5.elements/1.molecules/query-filter";
 import Grid from "../../5.elements/0.atoms/containers/grid";
 import Flex from "../../5.elements/0.atoms/containers/flex";
 import Proceed from "../../5.elements/0.atoms/buttons/proceed";
 import SizeButton from "../../5.elements/0.atoms/buttons/size";
 import { Link } from "react-router-dom";
+import Heading from "../../5.elements/0.atoms/text/heading";
 
-export default function SHOP__PAGE() {
+export default function SHOP__PAGE(props) {
+  const [quantity, setQuantity] = useState(1);
+  const { userData, setUserData } = useContext(UserContext);
+  console.log(props.match.params);
+  const name = props.match.params.item;
+
+  const addItem = () => {
+    //  add to local stoarage
+    setUserData({
+      ...userData,
+      basket: [...userData.basket, name],
+    });
+    props.history.push("/shop");
+  };
+
   return (
     <div style={{ background: "#7e7e7e" }}>
-      <div className="shop">
+      <div style={{ paddingTop: "0.6rem" }}>
+        <div>
+          <Heading label={name} />
+        </div>
+
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            paddingTop: "1rem",
             marginBottom: "1rem",
           }}
         >
@@ -33,10 +52,16 @@ export default function SHOP__PAGE() {
         </div>
 
         <Flex flexDirection="column">
-          <div style={{ height: "40vh" }}></div>
+          <div style={{ height: "35vh" }}></div>
         </Flex>
 
-        <Grid noOfColumns={4} backgroundColor="#C4C4C4" padding="1rem">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            padding: "0.7rem",
+          }}
+        >
           <div className="shop__button">
             <SizeButton label="S" selected={false} />
           </div>
@@ -49,7 +74,7 @@ export default function SHOP__PAGE() {
           <div className="shop__button">
             <SizeButton label="XL" selected={false} />
           </div>
-        </Grid>
+        </div>
 
         <Flex flexDirection="column" backgroundColor="#000" color="#fff">
           <div style={{ padding: "1rem" }}>
@@ -62,11 +87,34 @@ export default function SHOP__PAGE() {
             >
               ${`56`}
             </div>
-            <div style={{ marginBottom: "1rem" }}>
-              <Proceed icon="plus" label="ADD ANOTHER" />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                marginBottom: "1rem",
+              }}
+            >
+              <button
+                onClick={() =>
+                  setQuantity((quantity) => (quantity !== 1 ? quantity - 1 : 1))
+                }
+              >
+                -
+              </button>
+              <button>{quantity}</button>
+              <button onClick={() => setQuantity((quantity) => quantity + 1)}>
+                +
+              </button>
             </div>
             <div style={{ marginBottom: "1rem" }}>
               <Proceed icon="window-close" label="CANCEL" />
+            </div>
+            <div style={{ marginBottom: "1rem" }}>
+              <Proceed
+                icon="plus"
+                label="ADD ANOTHER"
+                onClick={() => addItem()}
+              />
             </div>
             <div style={{ marginBottom: "1rem" }}>
               <Link to="/basket">

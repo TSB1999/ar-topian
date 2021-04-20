@@ -13,6 +13,17 @@ export default function Navbar() {
       <div className="navbar__options">
         <Options />
       </div>
+      {/* <div
+        style={{
+          display: "flex",
+          flex: 1,
+          color: "#fff",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        welcome back terst
+      </div> */}
     </div>
   );
 }

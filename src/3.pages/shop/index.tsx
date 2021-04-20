@@ -32,19 +32,19 @@ export default function Shop({ items, ...props }) {
                   width: "100%",
                 }}
               >
-                <div style={{ flex: 3, backgroundColor: "red" }}>
-                  developed by TSB M3DIA
-                </div>
+                <div style={{ flex: 3, backgroundColor: "#cecece" }}>image</div>
                 <div
                   style={{
                     display: "flex",
                     flex: 1,
-                    backgroundColor: "blue",
+                    backgroundColor: "#292929",
                     justifyContent: "center",
                     alignItems: "center",
+                    color: "#fff",
                   }}
                 >
                   {item.name}
+                  {item.price}
                 </div>
               </div>
             </Link>

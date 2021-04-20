@@ -18,9 +18,14 @@ function App() {
     loading: false,
     loggedIn: false,
     username: "",
+    basket: [],
   });
 
   const [items, setItems] = useState<any>([]);
+
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
   useEffect(() => {
     axios
       .get("/items", {
@@ -30,12 +35,12 @@ function App() {
       })
       .then((res) => {
         setItems(res.data);
-        // console.log(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   return (
     <div className="App">
