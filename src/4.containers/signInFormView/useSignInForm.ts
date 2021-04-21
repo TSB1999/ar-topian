@@ -48,9 +48,11 @@ export const useSignIn = () => {
     // });
     const data = await logInUser(signInForm);
     if (data !== false) {
+      // localStorage.setItem("token", data.data.token);
       setUserData({
         ...userData,
         loggedIn: true,
+        token: data.data.token,
         // username: si.username,
       });
       history.push("/");

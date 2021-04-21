@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../../1.stores/UserContext";
 import Sort from "../../5.elements/1.molecules/query-filter";
 import Grid from "../../5.elements/0.atoms/containers/grid";
@@ -7,20 +7,119 @@ import Proceed from "../../5.elements/0.atoms/buttons/proceed";
 import SizeButton from "../../5.elements/0.atoms/buttons/size";
 import { Link } from "react-router-dom";
 import Heading from "../../5.elements/0.atoms/text/heading";
+import axios from "axios";
 
 export default function SHOP__PAGE(props) {
   const [quantity, setQuantity] = useState(1);
+  const [form, setForm] = useState({
+    type: "",
+    small: 1,
+    medium: 1,
+    large: 1,
+    extra_large: 1,
+    name: "",
+    price: 0,
+  });
   const { userData, setUserData } = useContext(UserContext);
   console.log(props.match.params);
   const name = props.match.params.item;
 
+  useEffect(() => {
+    console.log(form);
+  }, [form]);
+
   const addItem = () => {
     //  add to local stoarage
-    setUserData({
-      ...userData,
-      basket: [...userData.basket, userData.current],
-    });
-    props.history.push("/shop");
+    axios
+      .post("/item", form, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        // setUserData({
+        //   ...userData,
+        //   items: res.data,
+        // });
+        // console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleFormChange = (e, key) => {
+    switch (key) {
+      case "type":
+        setForm({
+          ...form,
+          type: e.target.value,
+        });
+        break;
+      case "name":
+        setForm({
+          ...form,
+          name: e.target.value,
+        });
+        break;
+      case "price":
+        setForm({
+          ...form,
+          price: e.target.value,
+        });
+        break;
+      case "small_minus":
+        setForm({
+          ...form,
+          small: form.small !== 1 ? form.small - 1 : 1,
+        });
+        break;
+      case "small_plus":
+        setForm({
+          ...form,
+          small: form.small + 1,
+        });
+        break;
+      case "medium_minus":
+        setForm({
+          ...form,
+          medium: form.medium !== 1 ? form.medium - 1 : 1,
+        });
+        break;
+      case "medium_plus":
+        setForm({
+          ...form,
+          medium: form.medium + 1,
+        });
+        break;
+      case "large_minus":
+        setForm({
+          ...form,
+          large: form.large !== 1 ? form.large - 1 : 1,
+        });
+        break;
+      case "large_plus":
+        setForm({
+          ...form,
+          large: form.large + 1,
+        });
+        break;
+      case "extra_large_minus":
+        setForm({
+          ...form,
+          extra_large: form.extra_large !== 1 ? form.extra_large - 1 : 1,
+        });
+        break;
+      case "extra_large_plus":
+        setForm({
+          ...form,
+          extra_large: form.extra_large + 1,
+        });
+        break;
+      default:
+    }
   };
 
   return (
@@ -75,21 +174,18 @@ export default function SHOP__PAGE(props) {
           >
             <label>TYPE</label>
             <input
-              type="email"
-              name="email"
-              //   onChange={(e) => handleSignInChange(e, "email")}
+              // type="email"
+              name="type"
+              onChange={(e) => handleFormChange(e, "type")}
             />
 
             <label>NAME</label>
-            <input
-              name="name"
-              //   onChange={(e) => handleSignInChange(e, "password")}
-            />
+            <input name="name" onChange={(e) => handleFormChange(e, "name")} />
 
             <label>PRICE</label>
             <input
               name="price"
-              //   onChange={(e) => handleSignInChange(e, "password")}
+              onChange={(e) => handleFormChange(e, "price")}
             />
 
             <label>SMALL</label>
@@ -108,16 +204,16 @@ export default function SHOP__PAGE(props) {
                 }}
               >
                 <button
-                  onClick={() =>
-                    setQuantity((quantity) =>
-                      quantity !== 1 ? quantity - 1 : 1
-                    )
-                  }
+                  onClick={() => handleFormChange("", "small_minus")}
+                  //   setQuantity((quantity) =>
+                  //     quantity !== 1 ? quantity - 1 : 1
+                  //   )
+                  // }
                 >
                   -
                 </button>
-                <button>{quantity}</button>
-                <button onClick={() => setQuantity((quantity) => quantity + 1)}>
+                <button>{form.small}</button>
+                <button onClick={() => handleFormChange("", "small_plus")}>
                   +
                 </button>
               </div>
@@ -138,17 +234,11 @@ export default function SHOP__PAGE(props) {
                   justifyContent: "space-around",
                 }}
               >
-                <button
-                  onClick={() =>
-                    setQuantity((quantity) =>
-                      quantity !== 1 ? quantity - 1 : 1
-                    )
-                  }
-                >
+                <button onClick={() => handleFormChange("", "medium_minus")}>
                   -
                 </button>
-                <button>{quantity}</button>
-                <button onClick={() => setQuantity((quantity) => quantity + 1)}>
+                <button>{form.medium}</button>
+                <button onClick={() => handleFormChange("", "medium_plus")}>
                   +
                 </button>
               </div>
@@ -169,17 +259,11 @@ export default function SHOP__PAGE(props) {
                   justifyContent: "space-around",
                 }}
               >
-                <button
-                  onClick={() =>
-                    setQuantity((quantity) =>
-                      quantity !== 1 ? quantity - 1 : 1
-                    )
-                  }
-                >
+                <button onClick={() => handleFormChange("", "large_minus")}>
                   -
                 </button>
-                <button>{quantity}</button>
-                <button onClick={() => setQuantity((quantity) => quantity + 1)}>
+                <button>{form.large}</button>
+                <button onClick={() => handleFormChange("", "large_plus")}>
                   +
                 </button>
               </div>
@@ -201,16 +285,14 @@ export default function SHOP__PAGE(props) {
                 }}
               >
                 <button
-                  onClick={() =>
-                    setQuantity((quantity) =>
-                      quantity !== 1 ? quantity - 1 : 1
-                    )
-                  }
+                  onClick={() => handleFormChange("", "extra_large_minus")}
                 >
                   -
                 </button>
-                <button>{quantity}</button>
-                <button onClick={() => setQuantity((quantity) => quantity + 1)}>
+                <button>{form.extra_large}</button>
+                <button
+                  onClick={() => handleFormChange("", "extra_large_plus")}
+                >
                   +
                 </button>
               </div>

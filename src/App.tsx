@@ -15,21 +15,35 @@ import Admin from "./3.pages/admin";
 import axios from "axios";
 
 function App() {
-  const [userData, setUserData] = useState({
-    loading: false,
-    loggedIn: false,
-    username: "",
-    basket: [],
-    items: [],
-    current: {},
-  });
+  const initialState = localStorage.getItem("state")
+    ? {
+        loading: JSON.parse(localStorage.getItem("state") as any).loading,
+        loggedIn: JSON.parse(localStorage.getItem("state") as any).loggedIn,
+        username: JSON.parse(localStorage.getItem("state") as any).username,
+        basket: JSON.parse(localStorage.getItem("state") as any).basket,
+        items: JSON.parse(localStorage.getItem("state") as any).items,
+        current: JSON.parse(localStorage.getItem("state") as any).current,
+      }
+    : {
+        loading: false,
+        loggedIn: false,
+        username: "",
+        basket: [],
+        items: [],
+        current: {},
+      };
+  const [userData, setUserData] = useState(initialState);
 
   const [items, setItems] = useState<any>([]);
 
   useEffect(() => {
+    localStorage.setItem("state", JSON.stringify(userData));
     console.log(userData);
   }, [userData]);
+
   useEffect(() => {
+    setUserData(JSON.parse(localStorage.getItem("state") as any));
+
     axios
       .get("/items", {
         headers: {
