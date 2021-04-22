@@ -12,5 +12,5 @@
 .navbar__options {
   display: flex;
   align-items: center;
-  flex: 2;
+  flex: 1;
 }

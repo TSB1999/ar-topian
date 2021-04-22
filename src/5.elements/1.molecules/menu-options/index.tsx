@@ -1,19 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "../../../1.stores/UserContext";
 import SearchIcon from "../../0.atoms/icons/search";
 import BasketIcon from "../../0.atoms/icons/basket";
-import MenuIcon from "../../0.atoms/icons/menu";
+import SignOutIcon from "../../0.atoms/icons/menu";
 import { Link } from "react-router-dom";
 
 import "./styles.css";
 
 export default function Options() {
+  const { userData, setUserData } = useContext(UserContext);
+
+  const logout = () => {
+    setUserData({
+      ...userData,
+      loggedIn: false,
+    });
+  };
   return (
     <div className="options">
-      <SearchIcon size="small" />
+      <button style={{ background: "transparent", border: "none" }}>
+        <SearchIcon size="small" />
+      </button>
       <Link to="/basket">
-        <BasketIcon size="small" />
+        <button style={{ background: "transparent", border: "none" }}>
+          <BasketIcon size="small" />
+        </button>
       </Link>
-      <MenuIcon size="small" />
+      {userData.loggedIn ? (
+        <text>test...</text>
+      ) : (
+        <button
+          style={{ background: "transparent", border: "none" }}
+          onClick={() => logout()}
+        >
+          <SignOutIcon size="small" />
+        </button>
+      )}
     </div>
   );
 }

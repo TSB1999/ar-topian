@@ -23,6 +23,7 @@ function App() {
         basket: JSON.parse(localStorage.getItem("state") as any).basket,
         items: JSON.parse(localStorage.getItem("state") as any).items,
         current: JSON.parse(localStorage.getItem("state") as any).current,
+        token: JSON.parse(localStorage.getItem("state") as any).token,
       }
     : {
         loading: false,
@@ -31,6 +32,7 @@ function App() {
         basket: [],
         items: [],
         current: {},
+        token: "",
       };
   const [userData, setUserData] = useState(initialState);
 
@@ -65,9 +67,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
-        <Alert />
         <UserContext.Provider value={{ userData, setUserData }}>
+          <Navbar />
+          <Alert />
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/sign-in" component={SignIn} />

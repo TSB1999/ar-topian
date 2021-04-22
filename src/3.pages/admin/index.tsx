@@ -30,11 +30,14 @@ export default function SHOP__PAGE(props) {
 
   const addItem = () => {
     //  add to local stoarage
+
+    console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
     axios
       .post("/item", form, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization:
+            "Bearer " + JSON.parse(localStorage.getItem("state") as any),
         },
       })
       .then((res) => {
