@@ -9,9 +9,19 @@ import Flex from "../../5.elements/0.atoms/containers/flex";
 import StripeCheckout from "react-stripe-checkout";
 
 export default function BASKET_PAGE({ ...props }) {
-  const { userData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const { basket } = userData;
+
+  const deleteItem = (key) => {
+    const data = userData.basket;
+    data.splice(key, 1);
+
+    setUserData({
+      ...userData,
+      basket: data,
+    });
+  };
 
   async function handleToken(token) {
     setLoading(true);
@@ -61,7 +71,10 @@ export default function BASKET_PAGE({ ...props }) {
                     backgroundColor: "#1a1a1a",
                   }}
                 >
-                  image
+                  <img
+                    src={item.image}
+                    style={{ height: "100%", width: "100%" }}
+                  />
                 </div>
               </div>
               <div
@@ -80,6 +93,16 @@ export default function BASKET_PAGE({ ...props }) {
                 <div style={{ fontWeight: "bold" }}>{item.name}</div>
                 <div style={{ fontWeight: 400 }}>$ {item.price}</div>
               </div>
+              <div
+                style={{
+                  display: "flex",
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <button onClick={() => deleteItem(key)}>x</button>
+              </div>
             </div>
           </div>
         );
@@ -95,15 +118,6 @@ export default function BASKET_PAGE({ ...props }) {
             justifyContent: "center",
           }}
         >
-          <div
-            style={{
-              marginBottom: "1rem",
-              textAlign: "center",
-              fontWeight: "bold",
-            }}
-          >
-            <Proceed icon="broom" label="CLEAR" />
-          </div>
           <div
             style={{
               marginBottom: "1rem",

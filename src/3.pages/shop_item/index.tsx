@@ -10,6 +10,12 @@ import Heading from "../../5.elements/0.atoms/text/heading";
 
 export default function SHOP__PAGE(props) {
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState({
+    small: false,
+    medium: false,
+    large: true,
+    extra_large: false,
+  });
   const { userData, setUserData } = useContext(UserContext);
   console.log(props.match.params);
   const name = props.match.params.item;
@@ -21,6 +27,43 @@ export default function SHOP__PAGE(props) {
       basket: [...userData.basket, userData.current],
     });
     props.history.push("/shop");
+  };
+
+  const handleClick = (key) => {
+    switch (key) {
+      case "S":
+        setSize({
+          small: true,
+          medium: false,
+          large: false,
+          extra_large: false,
+        });
+        break;
+      case "M":
+        setSize({
+          small: false,
+          medium: true,
+          large: false,
+          extra_large: false,
+        });
+        break;
+      case "L":
+        setSize({
+          small: false,
+          medium: false,
+          large: true,
+          extra_large: false,
+        });
+        break;
+      case "XL":
+        setSize({
+          small: false,
+          medium: false,
+          large: false,
+          extra_large: true,
+        });
+        break;
+    }
   };
 
   return (
@@ -52,7 +95,23 @@ export default function SHOP__PAGE(props) {
         </div>
 
         <Flex flexDirection="column">
-          <div style={{ height: "35vh" }}></div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "35vh",
+            }}
+          >
+            <img
+              src={userData.current.image}
+              style={{
+                height: "70%",
+                width: "80%",
+                borderRadius: "0.4rem",
+              }}
+            />
+          </div>
         </Flex>
 
         <div
@@ -63,16 +122,32 @@ export default function SHOP__PAGE(props) {
           }}
         >
           <div className="shop__button">
-            <SizeButton label="S" selected={false} />
+            <SizeButton
+              label="S"
+              selected={size.small}
+              onClick={() => handleClick("S")}
+            />
           </div>
           <div className="shop__button">
-            <SizeButton label="M" selected={true} />
+            <SizeButton
+              label="M"
+              selected={size.medium}
+              onClick={() => handleClick("M")}
+            />
           </div>
           <div className="shop__button">
-            <SizeButton label="L" selected={false} />
+            <SizeButton
+              label="L"
+              selected={size.large}
+              onClick={() => handleClick("L")}
+            />
           </div>
           <div className="shop__button">
-            <SizeButton label="XL" selected={false} />
+            <SizeButton
+              label="XL"
+              selected={size.extra_large}
+              onClick={() => handleClick("XL")}
+            />
           </div>
         </div>
 

@@ -17,6 +17,7 @@ export default function Shop(props) {
       current: item,
     });
   };
+
   return (
     <div style={{ background: "#7e7e7e" }}>
       <div
@@ -64,15 +65,16 @@ export default function Shop(props) {
                 >
                   {item.name}
                 </div>
-                <div
+                <img
+                  src={item.image}
                   style={{
-                    flex: 3,
-                    backgroundColor: "#cecece",
+                    height: "70%",
+                    width: "85%",
+                    justifySelf: "center",
+                    alignSelf: "center",
                     borderRadius: "0.4rem",
                   }}
-                >
-                  image
-                </div>
+                />
                 <div
                   style={{
                     display: "flex",

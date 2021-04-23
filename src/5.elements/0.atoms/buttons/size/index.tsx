@@ -9,9 +9,10 @@ export interface ButtonProps {
 }
 
 export const SizeButton: React.FC<ButtonProps> = ({
-  selected = false,
+  selected,
   backgroundColor,
   label,
+  onClick,
   ...props
 }) => {
   const mode = selected ? "size-button--selected" : "size-button--unselected";
@@ -19,6 +20,7 @@ export const SizeButton: React.FC<ButtonProps> = ({
     <button
       type="button"
       className={["size-button", mode].join(" ")}
+      onClick={onClick}
       style={{ backgroundColor }}
       {...props}
     >
