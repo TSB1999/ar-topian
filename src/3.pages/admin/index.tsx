@@ -19,6 +19,7 @@ export default function SHOP__PAGE(props) {
     extra_large: 1,
     name: "",
     price: 0,
+    image: "",
   });
   const { userData, setUserData } = useContext(UserContext);
   console.log(props.match.params);
@@ -36,8 +37,7 @@ export default function SHOP__PAGE(props) {
       .post("/item", form, {
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer " + JSON.parse(localStorage.getItem("state") as any),
+          Authorization: "Bearer " + userData.token,
         },
       })
       .then((res) => {
@@ -71,6 +71,12 @@ export default function SHOP__PAGE(props) {
         setForm({
           ...form,
           price: e.target.value,
+        });
+        break;
+      case "image":
+        setForm({
+          ...form,
+          image: e.target.value,
         });
         break;
       case "small_minus":
@@ -153,14 +159,6 @@ export default function SHOP__PAGE(props) {
           <Proceed icon="upload" label="UPLOAD AN ITEM" />
         </div>
 
-        <Flex flexDirection="column">
-          <div
-            style={{ height: "35vh", backgroundColor: "red", width: "100%" }}
-          >
-            d
-          </div>
-        </Flex>
-
         <div
           style={{
             display: "flex",
@@ -184,6 +182,12 @@ export default function SHOP__PAGE(props) {
 
             <label>NAME</label>
             <input name="name" onChange={(e) => handleFormChange(e, "name")} />
+
+            <label>IMAGE URL</label>
+            <input
+              name="image"
+              onChange={(e) => handleFormChange(e, "image")}
+            />
 
             <label>PRICE</label>
             <input

@@ -107,7 +107,9 @@ export default function SHOP__PAGE(props) {
               </button>
             </div>
             <div style={{ marginBottom: "1rem" }}>
-              <Proceed icon="window-close" label="CANCEL" />
+              <Link to="/">
+                <Proceed icon="window-close" label="CANCEL" />
+              </Link>
             </div>
             <div style={{ marginBottom: "1rem" }}>
               <Proceed

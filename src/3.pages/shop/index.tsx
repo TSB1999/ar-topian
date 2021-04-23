@@ -30,12 +30,17 @@ export default function Shop(props) {
         <Sort setting="high to low" />
       </div>
 
-      <Grid noOfColumns={2} gridGap="1rem">
+      <Grid noOfColumns={2} gridGap="0.5rem">
         {items.map((item: any, key) => {
           return (
             <button
               onClick={() => toItem(item)}
-              style={{ margin: "0.5rem", border: "none" }}
+              style={{
+                margin: "0.5rem",
+                border: "0.15rem solid #cecece",
+                background: "#292929",
+                borderRadius: "0.4rem",
+              }}
             >
               <div
                 key={key}
@@ -46,7 +51,28 @@ export default function Shop(props) {
                   width: "100%",
                 }}
               >
-                <div style={{ flex: 3, backgroundColor: "#cecece" }}>image</div>
+                <div
+                  style={{
+                    display: "flex",
+                    flex: 0.8,
+                    backgroundColor: "#292929",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "#fff",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {item.name}
+                </div>
+                <div
+                  style={{
+                    flex: 3,
+                    backgroundColor: "#cecece",
+                    borderRadius: "0.4rem",
+                  }}
+                >
+                  image
+                </div>
                 <div
                   style={{
                     display: "flex",
@@ -57,8 +83,7 @@ export default function Shop(props) {
                     color: "#fff",
                   }}
                 >
-                  {item.name}
-                  {item.price}
+                  $ {item.price}
                 </div>
               </div>
             </button>
@@ -67,8 +92,8 @@ export default function Shop(props) {
       </Grid>
 
       <Flex flexDirection="column" backgroundColor="#000" color="#fff">
-        <div className="shop__footer">
-          <div>developed by TSB M3DIA</div>
+        <div className="shop__footer" style={{ padding: "1rem" }}>
+          <div style={{ fontWeight: "bold" }}>developed by TSB M3DIA</div>
         </div>
       </Flex>
     </div>

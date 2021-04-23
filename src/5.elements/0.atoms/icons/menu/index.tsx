@@ -14,5 +14,10 @@ export default function MenuIcon({ ...props }) {
       break;
     default:
   }
-  return <i className={["menu", "fas fa-ellipsis-v", size].join(" ")}></i>;
+  return (
+    <i
+      style={{ color: "#fff" }}
+      className={["sign-out", "fas sign-out-alt", size].join(" ")}
+    ></i>
+  );
 }

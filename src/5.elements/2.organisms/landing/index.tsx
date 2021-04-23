@@ -34,12 +34,12 @@ export const Landing: React.FC<LandingProps> = ({ ...props }) => {
           </div>
         ) : (
           <div className="landing__buttons">
-            <div>
+            <div style={{ margin: "1rem" }}>
               <Link to="/register">
                 <SubmitButton label="Register" theme="light" type="other" />
               </Link>
             </div>
-            <div>
+            <div style={{ margin: "1rem" }}>
               <Link to="/sign-in">
                 <SubmitButton type="other" label="Sign In" theme="dark" />
               </Link>

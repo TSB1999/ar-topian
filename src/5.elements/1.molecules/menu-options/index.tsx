@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import UserContext from "../../../1.stores/UserContext";
 import SearchIcon from "../../0.atoms/icons/search";
 import BasketIcon from "../../0.atoms/icons/basket";
-import SignOutIcon from "../../0.atoms/icons/menu";
+import SignInIcon from "../../0.atoms/icons/sign_in";
+import SignOutIcon from "../../0.atoms/icons/sign_out";
 import { Link } from "react-router-dom";
 
 import "./styles.css";
@@ -18,23 +19,25 @@ export default function Options() {
   };
   return (
     <div className="options">
-      <button style={{ background: "transparent", border: "none" }}>
-        <SearchIcon size="small" />
-      </button>
       <Link to="/basket">
         <button style={{ background: "transparent", border: "none" }}>
           <BasketIcon size="small" />
         </button>
       </Link>
+
       {userData.loggedIn ? (
-        <text>test...</text>
-      ) : (
         <button
-          style={{ background: "transparent", border: "none" }}
           onClick={() => logout()}
+          style={{ background: "transparent", border: "none" }}
         >
           <SignOutIcon size="small" />
         </button>
+      ) : (
+        <Link to="/sign-in">
+          <button style={{ background: "transparent", border: "none" }}>
+            <SignInIcon size="small" />
+          </button>
+        </Link>
       )}
     </div>
   );

@@ -54,7 +54,7 @@ export default function BASKET_PAGE({ ...props }) {
         return (
           <div style={{ width: "100%", marginBottom: "1rem" }}>
             <div style={{ display: "flex", margin: "1rem" }}>
-              <div style={{ flex: 1, backgroundColor: "green" }}>
+              <div style={{ flex: 1 }}>
                 <div
                   style={{
                     height: "10vh",
@@ -70,14 +70,15 @@ export default function BASKET_PAGE({ ...props }) {
                   flexDirection: "column",
                   height: "10vh",
                   flex: 3,
-                  backgroundColor: "red",
-                  justifyContent: "center",
+                  backgroundColor: "#fff",
+                  color: "#292929",
+                  justifyContent: "space-around",
                   alignItems: "center",
                 }}
               >
-                <div>{item.type}</div>
-                <div>{item.name}</div>
-                <div>{item.price}</div>
+                <div style={{ fontWeight: 500 }}>{item.type}</div>
+                <div style={{ fontWeight: "bold" }}>{item.name}</div>
+                <div style={{ fontWeight: 400 }}>$ {item.price}</div>
               </div>
             </div>
           </div>
@@ -85,10 +86,40 @@ export default function BASKET_PAGE({ ...props }) {
       })}
 
       <Flex flexDirection="column" backgroundColor="#000" color="#fff">
-        <div className="shop__footer">
-          <div style={{ marginBottom: "1rem" }}>${` ${total}`}</div>
-          <div style={{ marginBottom: "1rem" }}>
-            {/* <Proceed icon="shopping-basket" label="PROCEED TO CHECKOUT" /> */}
+        <div
+          className="shop__footer"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            padding: "1rem",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              marginBottom: "1rem",
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            <Proceed icon="broom" label="CLEAR" />
+          </div>
+          <div
+            style={{
+              marginBottom: "1rem",
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            ${` ${total}`}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              marginBottom: "1rem",
+              justifyContent: "center",
+            }}
+          >
             <StripeCheckout
               stripeKey="pk_test_51I6mKCDfXHQFQVOullPWJg7eYcVE87dBsMUsLNNWUz0h9JxVEGXgNpEwVhlkEwOxZx7c82ga81J6mxm53FWP2G2a00LjjoGjtb"
               token={(token) => {
@@ -99,14 +130,9 @@ export default function BASKET_PAGE({ ...props }) {
               shippingAddress
               amount={total * 100}
               name={`${"ARtopian order"} `}
-              // style={{
-              //   // flex: 1,
-              //   alignSelf: "start",
-              //   gridColumn: "1/5",
-              // }}
             />
           </div>
-          <div>developed by TSB M3DIA</div>
+          <div style={{ fontWeight: "bold" }}>developed by TSB M3DIA</div>
         </div>
       </Flex>
     </div>
