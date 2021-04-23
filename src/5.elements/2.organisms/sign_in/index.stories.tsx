@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => (
-  <SignIn handleSignInChange handleSignInSubmit {...args} />
+  <SignIn handleSignInSubmit handleSignInChange {...args} />
 );
 
 export const SignInForm = Template.bind({});
