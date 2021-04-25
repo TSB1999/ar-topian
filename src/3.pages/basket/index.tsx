@@ -23,12 +23,13 @@ export default function BASKET_PAGE({ ...props }) {
     });
   };
 
-  async function handleToken(token) {
+  async function handleToken(token, product) {
     setLoading(true);
     console.log("start");
     const response = await axios.post(
-      "https://j3m2f.sse.codesandbox.io/checkout",
+      "https://mnnlb.sse.codesandbox.io/checkout",
       {
+        product,
         token,
       }
     );
@@ -41,12 +42,22 @@ export default function BASKET_PAGE({ ...props }) {
     } else {
       setLoading(false); // Here if you want to use it
       toast("Something went wrong", { type: "error" });
+      console.log("fail");
     }
   }
 
   let total = 0;
   basket.map((item) => (total += item.price));
+  // round total to 2 dp
+  total = Math.round(total * 1000) / 1000;
+  console.log(total, Math.round(total * 1000) / 1000);
+
   console.log(userData.basket, "ver");
+
+  const product = {
+    name: "ARtopian order",
+    price: total,
+  };
   return (
     <div style={{ background: "#7e7e7e" }}>
       <div
@@ -89,7 +100,7 @@ export default function BASKET_PAGE({ ...props }) {
                   alignItems: "center",
                 }}
               >
-                <div style={{ fontWeight: 500 }}>{item.type}</div>
+                <div style={{ fontWeight: 500 }}>{item.size}</div>
                 <div style={{ fontWeight: "bold" }}>{item.name}</div>
                 <div style={{ fontWeight: 400 }}>$ {item.price}</div>
               </div>
@@ -135,9 +146,9 @@ export default function BASKET_PAGE({ ...props }) {
             }}
           >
             <StripeCheckout
-              stripeKey="pk_test_51I6mKCDfXHQFQVOullPWJg7eYcVE87dBsMUsLNNWUz0h9JxVEGXgNpEwVhlkEwOxZx7c82ga81J6mxm53FWP2G2a00LjjoGjtb"
+              stripeKey="pk_test_51IjuJwH9RJLzLeBMhoZaje2O03xtXpsHEPRtOHVKWzl63TCxl7IudEc6OuVrz34eQqRdIPs64RPdYbsiqzrcnjkJ00DF7QSrfb"
               token={(token) => {
-                handleToken(token);
+                handleToken(token, product);
               }}
               currency="GBP"
               billingAddress

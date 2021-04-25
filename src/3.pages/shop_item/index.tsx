@@ -10,6 +10,7 @@ import Heading from "../../5.elements/0.atoms/text/heading";
 
 export default function SHOP__PAGE(props) {
   const [quantity, setQuantity] = useState(1);
+  const [quoteSize, setQuoteSize] = useState("Large");
   const [size, setSize] = useState({
     small: false,
     medium: false,
@@ -22,11 +23,30 @@ export default function SHOP__PAGE(props) {
 
   const addItem = () => {
     //  add to local stoarage
+
+    const appendSize = {
+      ...userData.current,
+      size: quoteSize,
+    };
     setUserData({
       ...userData,
-      basket: [...userData.basket, userData.current],
+      basket: [...userData.basket, appendSize],
     });
     props.history.push("/shop");
+  };
+
+  const addthenCheckout = () => {
+    //  add to local stoarage
+    const appendSize = {
+      ...userData.current,
+      size: quoteSize,
+    };
+
+    setUserData({
+      ...userData,
+      basket: [...userData.basket, appendSize],
+    });
+    props.history.push("/basket");
   };
 
   const handleClick = (key) => {
@@ -38,6 +58,7 @@ export default function SHOP__PAGE(props) {
           large: false,
           extra_large: false,
         });
+        setQuoteSize("Small");
         break;
       case "M":
         setSize({
@@ -46,6 +67,7 @@ export default function SHOP__PAGE(props) {
           large: false,
           extra_large: false,
         });
+        setQuoteSize("Medium");
         break;
       case "L":
         setSize({
@@ -54,6 +76,7 @@ export default function SHOP__PAGE(props) {
           large: true,
           extra_large: false,
         });
+        setQuoteSize("Large");
         break;
       case "XL":
         setSize({
@@ -62,6 +85,7 @@ export default function SHOP__PAGE(props) {
           large: false,
           extra_large: true,
         });
+        setQuoteSize("Extra Large");
         break;
     }
   };
@@ -194,9 +218,11 @@ export default function SHOP__PAGE(props) {
               />
             </div>
             <div style={{ marginBottom: "1rem" }}>
-              <Link to="/basket">
-                <Proceed icon="shopping-basket" label="PROCEED TO CHECKOUT" />
-              </Link>
+              <Proceed
+                icon="shopping-basket"
+                label="PROCEED TO CHECKOUT"
+                onClick={() => addthenCheckout()}
+              />
             </div>
             <div style={{ textAlign: "center", fontWeight: "bold" }}>
               developed by TSB M3DIA

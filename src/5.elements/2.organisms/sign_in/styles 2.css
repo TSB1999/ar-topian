@@ -9,6 +9,10 @@
   justify-content: space-around;
 }
 
+.sign-in-form__buttons > div {
+  margin: 1rem;
+}
+
 .sign-in-form > input {
   background: #c4c4c4;
   border: none;
