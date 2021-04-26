@@ -7,6 +7,7 @@ import Proceed from "../../5.elements/0.atoms/buttons/proceed";
 import SizeButton from "../../5.elements/0.atoms/buttons/size";
 import { Link } from "react-router-dom";
 import Heading from "../../5.elements/0.atoms/text/heading";
+import { app } from "../../config";
 
 export default function SHOP__PAGE(props) {
   const [quantity, setQuantity] = useState(1);
@@ -47,6 +48,15 @@ export default function SHOP__PAGE(props) {
       basket: [...userData.basket, appendSize],
     });
     props.history.push("/basket");
+  };
+
+  const onChange = (e) => {
+    const file = e.target.files[0];
+    const storageRef = app.storage().ref();
+    const fileRef = storageRef.child(file.name);
+    fileRef.put(file).then(() => {
+      console.log("uploaded a file");
+    });
   };
 
   const handleClick = (key) => {
@@ -101,21 +111,11 @@ export default function SHOP__PAGE(props) {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginBottom: "1rem",
-          }}
-        >
-          <Sort setting="high to low" />
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
             paddingTop: "1rem",
             marginBottom: "1rem",
           }}
         >
-          <Proceed icon="upload" label="UPLOAD A SHORT CLIP" />
+          <input type="file" onChange={onChange} />
         </div>
 
         <Flex flexDirection="column">
