@@ -11,6 +11,7 @@ import { app } from "../../config";
 
 export default function SHOP__PAGE(props) {
   const [quantity, setQuantity] = useState(1);
+  const [fileURL, setFileURL] = useState("");
   const [quoteSize, setQuoteSize] = useState("Large");
   const [size, setSize] = useState({
     small: false,
@@ -28,6 +29,7 @@ export default function SHOP__PAGE(props) {
     const appendSize = {
       ...userData.current,
       size: quoteSize,
+      video_url: fileURL,
     };
     setUserData({
       ...userData,
@@ -55,8 +57,10 @@ export default function SHOP__PAGE(props) {
     const storageRef = app.storage().ref();
     const fileRef = storageRef.child(file.name);
     fileRef.put(file).then(() => {
-      console.log("uploaded a file");
+      console.log("uploaded a file", file.name);
     });
+    const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
+    setFileURL(fileURL);
   };
 
   const handleClick = (key) => {
