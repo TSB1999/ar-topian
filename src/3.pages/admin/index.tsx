@@ -8,9 +8,10 @@ import SizeButton from "../../5.elements/0.atoms/buttons/size";
 import { Link } from "react-router-dom";
 import Heading from "../../5.elements/0.atoms/text/heading";
 import axios from "axios";
+import { app } from "../../config";
 
 export default function SHOP__PAGE(props) {
-  const [quantity, setQuantity] = useState(1);
+  const [fileURL, setFileURL] = useState("");
   const [form, setForm] = useState({
     type: "",
     small: 1,
@@ -74,9 +75,18 @@ export default function SHOP__PAGE(props) {
         });
         break;
       case "image":
+        const file = e.target.files[0];
+        const storageRef = app.storage().ref();
+        const fileRef = storageRef.child(file.name);
+        fileRef.put(file).then(() => {
+          console.log("uploaded a file", file.name);
+        });
+        const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
+        setFileURL(fileURL);
+        console.log(fileURL);
         setForm({
           ...form,
-          image: e.target.value,
+          image: fileURL,
         });
         break;
       case "small_minus":
@@ -131,6 +141,18 @@ export default function SHOP__PAGE(props) {
     }
   };
 
+  const onChange = (e) => {
+    const file = e.target.files[0];
+    const storageRef = app.storage().ref();
+    const fileRef = storageRef.child(file.name);
+    fileRef.put(file).then(() => {
+      console.log("uploaded a file", file.name);
+    });
+    const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
+    setFileURL(fileURL);
+    console.log(fileURL);
+  };
+
   return (
     <div style={{ background: "#7e7e7e" }}>
       <div style={{ paddingTop: "0.6rem" }}>
@@ -138,17 +160,7 @@ export default function SHOP__PAGE(props) {
           <Heading label={name} />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: "1rem",
-          }}
-        >
-          <Sort setting="high to low" />
-        </div>
-
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "center",
@@ -157,7 +169,7 @@ export default function SHOP__PAGE(props) {
           }}
         >
           <Proceed icon="upload" label="UPLOAD AN ITEM" />
-        </div>
+        </div> */}
 
         <div
           style={{
@@ -183,11 +195,22 @@ export default function SHOP__PAGE(props) {
             <label>NAME</label>
             <input name="name" onChange={(e) => handleFormChange(e, "name")} />
 
-            <label>IMAGE URL</label>
+            <label>IMAGE UPLOAD</label>
             <input
+              type="file"
               name="image"
               onChange={(e) => handleFormChange(e, "image")}
             />
+            <div
+              style={{
+                height: "35vh",
+                width: "100%",
+                backgroundImage: fileURL,
+                marginBottom: "1rem",
+              }}
+            >
+              <img style={{ height: "100%", width: "100%" }} src={fileURL} />
+            </div>
 
             <label>PRICE</label>
             <input
@@ -210,13 +233,7 @@ export default function SHOP__PAGE(props) {
                   justifyContent: "space-around",
                 }}
               >
-                <button
-                  onClick={() => handleFormChange("", "small_minus")}
-                  //   setQuantity((quantity) =>
-                  //     quantity !== 1 ? quantity - 1 : 1
-                  //   )
-                  // }
-                >
+                <button onClick={() => handleFormChange("", "small_minus")}>
                   -
                 </button>
                 <button>{form.small}</button>
