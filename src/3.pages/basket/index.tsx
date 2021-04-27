@@ -36,6 +36,28 @@ export default function BASKET_PAGE({ ...props }) {
     const { status } = response.data;
     if (status === "success") {
       setLoading(false);
+      // axios call here
+
+      axios
+        .post(
+          "/order",
+          {
+            order: JSON.stringify(basket),
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + userData.token,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
       toast("Success! Payment Recieved - We'll email you soon", {
         type: "success",
       });
@@ -58,6 +80,8 @@ export default function BASKET_PAGE({ ...props }) {
     name: "ARtopian order",
     price: total,
   };
+
+  console.log(product);
   return (
     <div style={{ background: "#7e7e7e" }}>
       <div
@@ -72,6 +96,7 @@ export default function BASKET_PAGE({ ...props }) {
       </div>
 
       {basket.map((item, key) => {
+        console.log(product.price * 100);
         return (
           <div style={{ width: "100%", marginBottom: "1rem" }}>
             <div style={{ display: "flex", margin: "1rem" }}>
@@ -153,7 +178,7 @@ export default function BASKET_PAGE({ ...props }) {
               currency="GBP"
               billingAddress
               shippingAddress
-              amount={total * 100}
+              amount={product.price * 100}
               name={`${"ARtopian order"} `}
             />
           </div>
