@@ -159,18 +159,6 @@ export default function SHOP__PAGE(props) {
         <div>
           <Heading label={name} />
         </div>
-
-        {/* <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            paddingTop: "1rem",
-            marginBottom: "1rem",
-          }}
-        >
-          <Proceed icon="upload" label="UPLOAD AN ITEM" />
-        </div> */}
-
         <div
           style={{
             display: "flex",
@@ -322,21 +310,7 @@ export default function SHOP__PAGE(props) {
               </div>
             </div>
 
-            <div className="sign-in-form__buttons">
-              <div>
-                <Link to="/">
-                  {/* <SubmitButton label="back" theme="light" type="other" /> */}
-                </Link>
-              </div>
-              <div>
-                {/* <SubmitButton
-                  type="sign in"
-                  label="Sign In"
-                  theme="dark"
-                  handleSignInSubmit={handleSignInSubmit}
-                /> */}
-              </div>
-            </div>
+
           </form>
         </div>
 

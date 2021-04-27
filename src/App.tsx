@@ -12,6 +12,8 @@ import Shop from "./3.pages/shop";
 import ShopItem from "./3.pages/shop_item";
 import Basket from "./3.pages/basket";
 import Admin from "./3.pages/admin";
+import AdminUser from "./3.pages/admin_user";
+import AdminUserItem from "./3.pages/admin_user_item";
 import axios from "axios";
 
 function App() {
@@ -78,6 +80,8 @@ function App() {
           <Route exact path="/shop/:item" component={ShopItem} />
           <Route exact path="/basket" component={Basket} />
           <Route exact path="/admin" component={Admin} />
+          <Route exact path="/admin/:user" component={AdminUser} />
+          <Route exact path="/admin/:user/:item" component={AdminUserItem} />
         </UserContext.Provider>
       </Router>
     </div>
