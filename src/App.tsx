@@ -42,7 +42,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("state", JSON.stringify(userData));
-    console.log(userData);
+    // console.log(userData);
   }, [userData]);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function App() {
           ...userData,
           items: res.data,
         });
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -81,7 +81,7 @@ function App() {
           <Route exact path="/basket" component={Basket} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/:user" component={AdminUser} />
-          <Route exact path="/admin/:user/:item" component={AdminUserItem} />
+          <Route exact path="/admin/:user/:image" component={AdminUserItem} />
         </UserContext.Provider>
       </Router>
     </div>

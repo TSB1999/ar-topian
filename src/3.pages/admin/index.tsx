@@ -23,17 +23,17 @@ export default function SHOP__PAGE(props) {
     image: "",
   });
   const { userData, setUserData } = useContext(UserContext);
-  console.log(props.match.params);
+  // console.log(props.match.params);
   const name = props.match.params.item;
 
   useEffect(() => {
-    console.log(form);
+    // console.log(form);
   }, [form]);
 
   const addItem = () => {
     //  add to local stoarage
 
-    console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
+    // console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
     axios
       .post("/item", form, {
         headers: {
@@ -83,7 +83,7 @@ export default function SHOP__PAGE(props) {
         });
         const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
         setFileURL(fileURL);
-        console.log(fileURL);
+        // console.log(fileURL);
         setForm({
           ...form,
           image: fileURL,
@@ -150,7 +150,7 @@ export default function SHOP__PAGE(props) {
     });
     const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
     setFileURL(fileURL);
-    console.log(fileURL);
+    // console.log(fileURL);
   };
 
   return (
@@ -309,8 +309,6 @@ export default function SHOP__PAGE(props) {
                 </button>
               </div>
             </div>
-
-
           </form>
         </div>
 
