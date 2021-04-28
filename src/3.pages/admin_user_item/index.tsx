@@ -6,7 +6,7 @@ import Heading from "../../5.elements/0.atoms/text/heading";
 import axios from "axios";
 import { app } from "../../config";
 export default function AdminUser(props) {
-    const [fileURL, setFileURL] = useState("");
+  const [fileURL, setFileURL] = useState("");
   const [form, setForm] = useState({
     type: "",
     small: 1,
@@ -18,15 +18,14 @@ export default function AdminUser(props) {
     image: "",
   });
   const { userData, setUserData } = useContext(UserContext);
-  console.log(props.match.params);
+  // console.log(props.match.params);
   const name = props.match.params.user;
 
   useEffect(() => {
-    console.log(form);
+    // console.log(form);
   }, [name]);
 
   const addItem = () => {
-
     console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
     axios
       .post("/item", form, {
@@ -142,70 +141,69 @@ export default function AdminUser(props) {
     console.log(fileURL);
   };
 
-    return (
-            <div style={{ background: "#7e7e7e" }}>
-              <div style={{ paddingTop: "0.6rem" }}>
-                <div>
-                  <Heading label={name} />
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    padding: "0.7rem",
-                  }}
-                >
-                  <form
-                    className="sign-in-form"
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      console.log("hi");
-                    }}
-                  >
-                    <label>NAME</label>
-                    <input name="name" onChange={(e) => handleFormChange(e, "name")} />
-        
-                    <label>PATT UPLOAD</label>
-                    <input
-                      type="file"
-                      name="image"
-                      onChange={(e) => handleFormChange(e, "image")}
-                    />
-                    <div
-                      style={{
-                        height: "35vh",
-                        width: "100%",
-                        backgroundImage: fileURL,
-                        marginBottom: "1rem",
-                      }}
-                    >
-                      <img style={{ height: "100%", width: "100%" }} src={fileURL} />
-                    </div>
-        
-                    <label>PRICE</label>
-                    <input
-                      name="price"
-                      onChange={(e) => handleFormChange(e, "price")}
-                    />
-        
-                  </form>
-                </div>
-        
-                <Flex flexDirection="column" backgroundColor="#000" color="#fff">
-                  <div style={{ padding: "1rem" }}>
-                    <div style={{ marginBottom: "1rem" }}>
-                      <Proceed icon="plus" label="ADD" onClick={() => addItem()} />
-                    </div>
-                    <div style={{ marginBottom: "1rem" }}>
-                      <Proceed icon="window-close" label="CANCEL" />
-                    </div>
-        
-                    <div style={{ textAlign: "center", fontWeight: "bold" }}>
-                      developed by TSB M3DIA
-                    </div>
-                  </div>
-                </Flex>
-              </div>
+  return (
+    <div style={{ background: "#7e7e7e" }}>
+      <div style={{ paddingTop: "0.6rem" }}>
+        <div>
+          <Heading label={name} />
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            padding: "0.7rem",
+          }}
+        >
+          <form
+            className="sign-in-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              console.log("hi");
+            }}
+          >
+            <label>NAME</label>
+            <input name="name" onChange={(e) => handleFormChange(e, "name")} />
+
+            <label>PATT UPLOAD</label>
+            <input
+              type="file"
+              name="image"
+              onChange={(e) => handleFormChange(e, "image")}
+            />
+            <div
+              style={{
+                height: "35vh",
+                width: "100%",
+                backgroundImage: fileURL,
+                marginBottom: "1rem",
+              }}
+            >
+              <img style={{ height: "100%", width: "100%" }} src={fileURL} />
             </div>
-          )
+
+            <label>PRICE</label>
+            <input
+              name="price"
+              onChange={(e) => handleFormChange(e, "price")}
+            />
+          </form>
+        </div>
+
+        <Flex flexDirection="column" backgroundColor="#000" color="#fff">
+          <div style={{ padding: "1rem" }}>
+            <div style={{ marginBottom: "1rem" }}>
+              <Proceed icon="plus" label="ADD" onClick={() => addItem()} />
+            </div>
+            <div style={{ marginBottom: "1rem" }}>
+              <Proceed icon="window-close" label="CANCEL" />
+            </div>
+
+            <div style={{ textAlign: "center", fontWeight: "bold" }}>
+              developed by TSB M3DIA
+            </div>
+          </div>
+        </Flex>
+      </div>
+    </div>
+  );
 }

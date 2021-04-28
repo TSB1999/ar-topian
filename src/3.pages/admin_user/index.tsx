@@ -6,7 +6,7 @@ import Heading from "../../5.elements/0.atoms/text/heading";
 import axios from "axios";
 import { app } from "../../config";
 export default function AdminUser(props) {
-    const [fileURL, setFileURL] = useState("");
+  const [fileURL, setFileURL] = useState("");
   const [form, setForm] = useState({
     type: "",
     small: 1,
@@ -22,129 +22,145 @@ export default function AdminUser(props) {
   const name = props.match.params.user;
 
   useEffect(() => {
-    console.log(form);
+    // console.log(form);
   }, [name]);
 
-//   const addItem = () => {
+  useEffect(() => {
+    axios
+      .get(`/user/${name}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + userData.token,
+        },
+      })
+      .then((res) => {
+        console.log(res.data, "rge");
+      })
+      .catch((err) => {
+        console.log(err, "rdfw");
+      });
+  }, []);
 
-//     console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
-//     axios
-//       .post("/item", form, {
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: "Bearer " + userData.token,
-//         },
-//       })
-//       .then((res) => {
-//         console.log(res.data);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
+  //   const addItem = () => {
 
-//   const handleFormChange = (e, key) => {
-//     switch (key) {
-//       case "type":
-//         setForm({
-//           ...form,
-//           type: e.target.value,
-//         });
-//         break;
-//       case "name":
-//         setForm({
-//           ...form,
-//           name: e.target.value,
-//         });
-//         break;
-//       case "price":
-//         setForm({
-//           ...form,
-//           price: e.target.value,
-//         });
-//         break;
-//       case "image":
-//         const file = e.target.files[0];
-//         const storageRef = app.storage().ref();
-//         const fileRef = storageRef.child(file.name);
-//         fileRef.put(file).then(() => {
-//           console.log("uploaded a file", file.name);
-//         });
-//         const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
-//         setFileURL(fileURL);
-//         console.log(fileURL);
-//         setForm({
-//           ...form,
-//           image: fileURL,
-//         });
-//         break;
-//       case "small_minus":
-//         setForm({
-//           ...form,
-//           small: form.small !== 1 ? form.small - 1 : 1,
-//         });
-//         break;
-//       case "small_plus":
-//         setForm({
-//           ...form,
-//           small: form.small + 1,
-//         });
-//         break;
-//       case "medium_minus":
-//         setForm({
-//           ...form,
-//           medium: form.medium !== 1 ? form.medium - 1 : 1,
-//         });
-//         break;
-//       case "medium_plus":
-//         setForm({
-//           ...form,
-//           medium: form.medium + 1,
-//         });
-//         break;
-//       case "large_minus":
-//         setForm({
-//           ...form,
-//           large: form.large !== 1 ? form.large - 1 : 1,
-//         });
-//         break;
-//       case "large_plus":
-//         setForm({
-//           ...form,
-//           large: form.large + 1,
-//         });
-//         break;
-//       case "extra_large_minus":
-//         setForm({
-//           ...form,
-//           extra_large: form.extra_large !== 1 ? form.extra_large - 1 : 1,
-//         });
-//         break;
-//       case "extra_large_plus":
-//         setForm({
-//           ...form,
-//           extra_large: form.extra_large + 1,
-//         });
-//         break;
-//       default:
-//     }
-//   };
+  //     console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
+  //     axios
+  //       .post("/item", form, {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: "Bearer " + userData.token,
+  //         },
+  //       })
+  //       .then((res) => {
+  //         console.log(res.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   };
 
-//   const onChange = (e) => {
-//     const file = e.target.files[0];
-//     const storageRef = app.storage().ref();
-//     const fileRef = storageRef.child(file.name);
-//     fileRef.put(file).then(() => {
-//       console.log("uploaded a file", file.name);
-//     });
-//     const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
-//     setFileURL(fileURL);
-//     console.log(fileURL);
-//   };
+  //   const handleFormChange = (e, key) => {
+  //     switch (key) {
+  //       case "type":
+  //         setForm({
+  //           ...form,
+  //           type: e.target.value,
+  //         });
+  //         break;
+  //       case "name":
+  //         setForm({
+  //           ...form,
+  //           name: e.target.value,
+  //         });
+  //         break;
+  //       case "price":
+  //         setForm({
+  //           ...form,
+  //           price: e.target.value,
+  //         });
+  //         break;
+  //       case "image":
+  //         const file = e.target.files[0];
+  //         const storageRef = app.storage().ref();
+  //         const fileRef = storageRef.child(file.name);
+  //         fileRef.put(file).then(() => {
+  //           console.log("uploaded a file", file.name);
+  //         });
+  //         const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
+  //         setFileURL(fileURL);
+  //         console.log(fileURL);
+  //         setForm({
+  //           ...form,
+  //           image: fileURL,
+  //         });
+  //         break;
+  //       case "small_minus":
+  //         setForm({
+  //           ...form,
+  //           small: form.small !== 1 ? form.small - 1 : 1,
+  //         });
+  //         break;
+  //       case "small_plus":
+  //         setForm({
+  //           ...form,
+  //           small: form.small + 1,
+  //         });
+  //         break;
+  //       case "medium_minus":
+  //         setForm({
+  //           ...form,
+  //           medium: form.medium !== 1 ? form.medium - 1 : 1,
+  //         });
+  //         break;
+  //       case "medium_plus":
+  //         setForm({
+  //           ...form,
+  //           medium: form.medium + 1,
+  //         });
+  //         break;
+  //       case "large_minus":
+  //         setForm({
+  //           ...form,
+  //           large: form.large !== 1 ? form.large - 1 : 1,
+  //         });
+  //         break;
+  //       case "large_plus":
+  //         setForm({
+  //           ...form,
+  //           large: form.large + 1,
+  //         });
+  //         break;
+  //       case "extra_large_minus":
+  //         setForm({
+  //           ...form,
+  //           extra_large: form.extra_large !== 1 ? form.extra_large - 1 : 1,
+  //         });
+  //         break;
+  //       case "extra_large_plus":
+  //         setForm({
+  //           ...form,
+  //           extra_large: form.extra_large + 1,
+  //         });
+  //         break;
+  //       default:
+  //     }
+  //   };
 
-    return (
-            <div style={{ background: "#7e7e7e" }}>
-              {/* <div style={{ paddingTop: "0.6rem" }}>
+  //   const onChange = (e) => {
+  //     const file = e.target.files[0];
+  //     const storageRef = app.storage().ref();
+  //     const fileRef = storageRef.child(file.name);
+  //     fileRef.put(file).then(() => {
+  //       console.log("uploaded a file", file.name);
+  //     });
+  //     const fileURL = `https://firebasestorage.googleapis.com/v0/b/ar-topian.appspot.com/o/${file.name}?alt=media`;
+  //     setFileURL(fileURL);
+  //     console.log(fileURL);
+  //   };
+
+  return (
+    <div style={{ background: "#7e7e7e" }}>
+      {/* <div style={{ paddingTop: "0.6rem" }}>
                 <div>
                   <Heading label={name} />
                 </div>
@@ -206,6 +222,6 @@ export default function AdminUser(props) {
                   </div>
                 </Flex>
               </div> */}
-            </div>
-          )
+    </div>
+  );
 }
