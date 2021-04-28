@@ -8,6 +8,7 @@ import SizeButton from "../../5.elements/0.atoms/buttons/size";
 import { Link } from "react-router-dom";
 import Heading from "../../5.elements/0.atoms/text/heading";
 import { app } from "../../config";
+import { v4 as uuidv4 } from "uuid";
 
 export default function SHOP__PAGE(props) {
   const [quantity, setQuantity] = useState(1);
@@ -23,6 +24,8 @@ export default function SHOP__PAGE(props) {
   console.log(props.match.params);
   const name = props.match.params.item;
 
+  console.log(uuidv4());
+
   const addItem = () => {
     //  add to local stoarage
 
@@ -30,6 +33,7 @@ export default function SHOP__PAGE(props) {
       ...userData.current,
       size: quoteSize,
       video_url: fileURL,
+      id: uuidv4(),
     };
     setUserData({
       ...userData,
@@ -43,6 +47,8 @@ export default function SHOP__PAGE(props) {
     const appendSize = {
       ...userData.current,
       size: quoteSize,
+      video_url: fileURL,
+      id: uuidv4(),
     };
 
     setUserData({
