@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 // import "./4.styles/main.scss";
 import { UserContext } from "./1.stores/UserContext";
 import Navbar from "./5.elements/2.organisms/navbar";
+import Footer from "./5.elements/2.organisms/footer";
 import Alert from "./5.elements/0.atoms/misc/alert";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./3.pages/home";
@@ -83,6 +84,7 @@ function App() {
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/:user" component={AdminUser} />
           <Route exact path="/admin/:user/:id" component={AdminUserItem} />
+          <Footer />
         </UserContext.Provider>
       </Router>
     </div>

@@ -33,7 +33,11 @@ export const SubmitButton: React.FC<ButtonProps> = ({
         `submit-button--${size}`,
         `submit-button--${theme}`,
       ].join(" ")}
-      style={{ backgroundColor }}
+      style={{
+        backgroundColor,
+        fontFamily: "Arial Rounded MT Bold",
+        boxShadow: "0.3rem 0.3rem 0.4rem #292929",
+      }}
       onClick={mode}
       {...props}
     >

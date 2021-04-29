@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Logo() {
+export default function Logo({ ...props }) {
   return (
     <div
       style={{
@@ -28,6 +28,7 @@ export default function Logo() {
               fontFamily: "Arial Rounded MT Bold",
               fontWeight: "bold",
               fontSize: "1.2rem",
+              ...props,
             }}
           >
             AR

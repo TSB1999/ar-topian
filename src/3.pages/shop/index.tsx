@@ -19,18 +19,9 @@ export default function Shop(props) {
   };
 
   return (
-    <div style={{ background: "#7e7e7e" }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: "1rem",
-          marginBottom: "1rem",
-        }}
-      >
-        <Sort setting="high to low" />
-      </div>
-
+    <div
+      style={{ background: "#7e7e7e", minHeight: "90vh", padding: "1rem 0" }}
+    >
       <Grid noOfColumns={2} gridGap="0.5rem">
         {items.map((item: any, key) => {
           return (
@@ -40,15 +31,16 @@ export default function Shop(props) {
               style={{
                 margin: "0.5rem",
                 border: "0.15rem solid #cecece",
-                background: "#292929",
+                background: "#fff",
                 borderRadius: "0.4rem",
+                boxShadow: "0.3rem 0.3rem 0.2rem #292929",
               }}
             >
               <div
                 key={key}
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: "row",
                   height: "20vh",
                   width: "100%",
                 }}
@@ -56,49 +48,137 @@ export default function Shop(props) {
                 <div
                   style={{
                     display: "flex",
-                    flex: 0.8,
-                    backgroundColor: "#292929",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    color: "#fff",
-                    fontWeight: "bold",
+                    flex: 1,
+                    flexDirection: "column",
+                    // background: "red",
+                    justifyContent: "space-evenly",
+                    borderRight: "0.1rem solid #1a1a1a ",
+                    paddingRight: "0.5rem",
                   }}
                 >
-                  {item.name}
+                  <div
+                    style={{
+                      display: "flex",
+                      border: "1px solid #1a1a1a",
+                      borderRadius: "0.3rem",
+
+                      color: "#1a1a1a",
+                      fontWeight: "bold",
+                      padding: "0.2rem",
+                      boxShadow: "0.1rem 0.1rem 0.2rem grey",
+                    }}
+                  >
+                    <div style={{ flex: 1, borderRight: "0.1rem solid #fff" }}>
+                      S
+                    </div>
+
+                    <div style={{ flex: 1 }}>{item.small}</div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      border: "1px solid #1a1a1a",
+                      borderRadius: "0.3rem",
+
+                      color: "#1a1a1a",
+                      fontWeight: "bold",
+                      padding: "0.2rem",
+                      boxShadow: "0.1rem 0.1rem 0.2rem grey",
+                    }}
+                  >
+                    <div style={{ flex: 1, borderRight: "0.1rem solid #fff" }}>
+                      M
+                    </div>
+
+                    <div style={{ flex: 1 }}>{item.medium}</div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      border: "1px solid #1a1a1a",
+                      borderRadius: "0.3rem",
+
+                      color: "#1a1a1a",
+                      fontWeight: "bold",
+                      padding: "0.2rem",
+                      boxShadow: "0.1rem 0.1rem 0.2rem grey",
+                    }}
+                  >
+                    <div style={{ flex: 1, borderRight: "0.1rem solid #fff" }}>
+                      L
+                    </div>
+
+                    <div style={{ flex: 1 }}>{item.large}</div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      border: "1px solid #1a1a1a",
+                      borderRadius: "0.3rem",
+                      color: "#1a1a1a",
+                      fontWeight: "bold",
+                      padding: "0.2rem",
+                      boxShadow: "0.1rem 0.1rem 0.2rem grey",
+                    }}
+                  >
+                    <div style={{ flex: 1, borderRight: "0.1rem solid #fff" }}>
+                      X
+                    </div>
+
+                    <div style={{ flex: 1 }}>{item.extra_large}</div>
+                  </div>
                 </div>
-                <img
-                  src={item.image}
-                  style={{
-                    height: "70%",
-                    width: "85%",
-                    justifySelf: "center",
-                    alignSelf: "center",
-                    borderRadius: "0.4rem",
-                  }}
-                />
                 <div
                   style={{
                     display: "flex",
-                    flex: 1,
-                    backgroundColor: "#292929",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    color: "#fff",
+                    flexDirection: "column",
+                    flex: 3,
                   }}
                 >
-                  $ {item.price}
+                  <div
+                    style={{
+                      margin: "0.2rem",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      fontSize: "0.7rem",
+                      color: "#292929",
+                      fontWeight: "bold",
+                      borderRadius: "0.2rem",
+                      fontFamily: "Arial Rounded MT Bold",
+                    }}
+                  >
+                    {item.name}
+                  </div>
+                  <img
+                    src={item.image}
+                    style={{
+                      height: "25vw",
+                      width: "25vw",
+                      justifySelf: "center",
+                      alignSelf: "center",
+                      borderRadius: "0.4rem",
+                      margin: "0.4rem",
+                    }}
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      flex: 1,
+                      backgroundColor: "#fff",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: "#292929",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    £{item.price}
+                  </div>
                 </div>
               </div>
             </button>
           );
         })}
       </Grid>
-
-      <Flex flexDirection="column" backgroundColor="#000" color="#fff">
-        <div className="shop__footer" style={{ padding: "1rem" }}>
-          <div style={{ fontWeight: "bold" }}>developed by TSB M3DIA</div>
-        </div>
-      </Flex>
     </div>
   );
 }
