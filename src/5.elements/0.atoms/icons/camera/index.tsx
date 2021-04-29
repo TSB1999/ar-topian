@@ -5,7 +5,7 @@ interface IconProps {
   size: "small" | "medium" | "large";
 }
 
-export const SearchIcon: React.FC<IconProps> = ({ ...props }) => {
+export const CameraIcon: React.FC<IconProps> = ({ ...props }) => {
   let size;
   switch (props.size) {
     case "small":
@@ -20,7 +20,7 @@ export const SearchIcon: React.FC<IconProps> = ({ ...props }) => {
     default:
     // code block
   }
-  return <i className={["search", "fas fa-search", size].join(" ")}></i>;
+  return <i className={["camera", "fas fa-camera", size].join(" ")}></i>;
 };
 
-export default SearchIcon;
+export default CameraIcon;

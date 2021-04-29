@@ -8,7 +8,7 @@ export default function alert() {
         color: "#fff",
         fontSize: "0.8rem",
         fontWeight: "bold",
-        padding: "0.2rem",
+        padding: "0.4rem",
         textAlign: "center",
       }}
     >

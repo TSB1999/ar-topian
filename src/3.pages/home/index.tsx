@@ -7,9 +7,11 @@ export default function HOME__PAGE() {
   const { userData, setUserData } = useContext(UserContext);
 
   return (
-    <div style={{ padding: "1rem", background: "#737373" }}>
+    <div style={{ minHeight: "100vh", background: "#000" }}>
       <Landing />
-      <Link to="/admin">ce</Link>
+      <div style={{ background: "#292929", height: "20vh" }}></div>
+      <div style={{ background: "#1a1a1a", height: "20vh" }}></div>
+      <div style={{ background: "#000", height: "20vh" }}></div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ export const Landing: React.FC<LandingProps> = ({ ...props }) => {
   const { userData, setUserData } = useContext(UserContext);
   return (
     <div className="landing">
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ marginBottom: "1rem", padding: "1rem" }}>
         <Heading label="Get your ARtopian merch now!" />
       </div>
       <div style={{ marginBottom: "1rem" }}>
