@@ -37,12 +37,16 @@ export default function AdminUser(props) {
   }, []);
   // console.log(orders);
 
-  const next = (order) => {
+  const next = (order, key) => {
     // save current admin
     // console.log(order);
     setUserData({
       ...userData,
-      current_patt: order,
+      current_patt: {
+        order,
+        key,
+      },
+      orders,
     });
     props.history.push(`${name}/${order.id}`);
   };
@@ -65,7 +69,7 @@ export default function AdminUser(props) {
           {orders.map((order: any, key) => (
             <button
               key={key}
-              onClick={() => next(order)}
+              onClick={() => next(order, key)}
               style={{
                 display: "flex",
                 flexDirection: "column",

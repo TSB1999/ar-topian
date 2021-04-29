@@ -19,19 +19,32 @@ export default function AdminUser(props) {
   });
   const { userData, setUserData } = useContext(UserContext);
   // console.log(props.match.params);
-  const name = props.match.params.id;
+  const name = props.match.params.user;
 
   useEffect(() => {
-    console.log(name);
+    console.log(userData.current_patt.order);
   }, []);
 
   const addPatt = () => {
-    // console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
+    const current = {
+      ...userData.current_patt.order,
+      patt: fileURL,
+    };
 
-    // update orders collection
+    console.log(userData.orders, userData.current_patt.key);
+
+    const updatedOrder = userData.orders;
+
+    updatedOrder.splice(userData.current_patt.key, 1, current);
+
+    console.log(updatedOrder);
+
+    const body = {
+      order: JSON.stringify(updatedOrder),
+    };
 
     axios
-      .post("/item", form, {
+      .post(`/order/update/${name}`, body, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + userData.token,
@@ -39,6 +52,7 @@ export default function AdminUser(props) {
       })
       .then((res) => {
         console.log(res.data);
+        props.history.push(`/admin/${name}`);
       })
       .catch((err) => {
         console.log(err);
@@ -47,24 +61,6 @@ export default function AdminUser(props) {
 
   const handleFormChange = (e, key) => {
     switch (key) {
-      case "type":
-        setForm({
-          ...form,
-          type: e.target.value,
-        });
-        break;
-      case "name":
-        setForm({
-          ...form,
-          name: e.target.value,
-        });
-        break;
-      case "price":
-        setForm({
-          ...form,
-          price: e.target.value,
-        });
-        break;
       case "image":
         const file = e.target.files[0];
         const storageRef = app.storage().ref();
@@ -80,55 +76,6 @@ export default function AdminUser(props) {
           image: fileURL,
         });
         break;
-      case "small_minus":
-        setForm({
-          ...form,
-          small: form.small !== 1 ? form.small - 1 : 1,
-        });
-        break;
-      case "small_plus":
-        setForm({
-          ...form,
-          small: form.small + 1,
-        });
-        break;
-      case "medium_minus":
-        setForm({
-          ...form,
-          medium: form.medium !== 1 ? form.medium - 1 : 1,
-        });
-        break;
-      case "medium_plus":
-        setForm({
-          ...form,
-          medium: form.medium + 1,
-        });
-        break;
-      case "large_minus":
-        setForm({
-          ...form,
-          large: form.large !== 1 ? form.large - 1 : 1,
-        });
-        break;
-      case "large_plus":
-        setForm({
-          ...form,
-          large: form.large + 1,
-        });
-        break;
-      case "extra_large_minus":
-        setForm({
-          ...form,
-          extra_large: form.extra_large !== 1 ? form.extra_large - 1 : 1,
-        });
-        break;
-      case "extra_large_plus":
-        setForm({
-          ...form,
-          extra_large: form.extra_large + 1,
-        });
-        break;
-      default:
     }
   };
 
@@ -157,7 +104,7 @@ export default function AdminUser(props) {
         >
           <img
             style={{ height: "100%", width: "100%" }}
-            src={userData.current_patt.image}
+            src={userData.current_patt.order.image}
           />
         </div>
         <div

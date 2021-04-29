@@ -7,6 +7,7 @@ import Sort from "../../5.elements/1.molecules/query-filter";
 import Proceed from "../../5.elements/0.atoms/buttons/proceed";
 import Flex from "../../5.elements/0.atoms/containers/flex";
 import StripeCheckout from "react-stripe-checkout";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function BASKET_PAGE({ ...props }) {
   const { userData, setUserData } = useContext(UserContext);

@@ -35,6 +35,7 @@ export default function Shop(props) {
         {items.map((item: any, key) => {
           return (
             <button
+              key={key}
               onClick={() => toItem(item)}
               style={{
                 margin: "0.5rem",
