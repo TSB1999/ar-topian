@@ -5,11 +5,14 @@ export default function alert() {
     <div
       style={{
         background: "#0F0F0F",
-        color: "#fff",
+        color: "#737373",
         fontSize: "0.8rem",
-        fontWeight: "bold",
-        padding: "0.4rem",
+        fontWeight: 600,
+        padding: "0.5rem",
         textAlign: "center",
+        textTransform: "uppercase",
+        fontFamily: "Arial Rounded MT Bold",
+        textShadow: "0.1rem 0.1rem 0.2rem #07081f",
       }}
     >
       Next day delivery available!

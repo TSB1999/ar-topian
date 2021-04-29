@@ -21,20 +21,22 @@ export default function Options() {
     <div className="options">
       <div
         style={{
+          display: "flex",
           background: "#1a1a1a",
           padding: "0.2rem",
           borderRadius: "0.4rem",
+          width: "70%",
+          justifyContent: "space-between",
         }}
       >
         <Link to="/basket">
           <button style={{ background: "transparent", border: "none" }}>
-            <CameraIcon size="small" />
+            <BasketIcon size="small" />
           </button>
         </Link>
-
-        <Link to="/basket">
+        <Link to="/ar-topian">
           <button style={{ background: "transparent", border: "none" }}>
-            <BasketIcon size="small" />
+            <CameraIcon size="small" />
           </button>
         </Link>
 

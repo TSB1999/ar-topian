@@ -6,6 +6,7 @@ export interface TextProps {
   color?: string;
   textShadow?: string;
   label: string;
+  fontFamily?: string;
   onClick?: () => void;
 }
 
@@ -16,7 +17,7 @@ export const Heading: React.FC<TextProps> = ({
   ...props
 }) => {
   return (
-    <h1 className="heading-text" style={{ color, textShadow }}>
+    <h1 className="heading-text" style={{ color, textShadow, ...props }}>
       {label}
     </h1>
   );

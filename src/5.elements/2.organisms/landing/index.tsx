@@ -12,11 +12,29 @@ export const Landing: React.FC<LandingProps> = ({ ...props }) => {
   const { userData, setUserData } = useContext(UserContext);
   return (
     <div className="landing">
-      <div style={{ marginBottom: "1rem", padding: "1rem" }}>
-        <Heading label="Get your ARtopian merch now!" />
+      <div style={{ marginBottom: "1rem", padding: "0 1rem" }}>
+        <Heading
+          label="Bring it to life with ARtopian..."
+          textShadow="0.5rem 0.4rem 0.3rem #000"
+          fontFamily="Arial Rounded MT Bold"
+        />
       </div>
-      <div style={{ marginBottom: "1rem" }}>
-        <SubHeading label="BRING YOUR ITEMS TO LIFE" />
+      <div
+        style={{
+          marginBottom: "1rem",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <img
+          src="https://images.unsplash.com/photo-1542810205-0a5b379f9c52?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=935&q=80"
+          style={{
+            height: "70%",
+            width: "70%",
+            borderRadius: "0.4rem",
+            boxShadow: "0.5rem 0.5rem 0.3rem #292929",
+          }}
+        />
       </div>
       <div style={{ marginBottom: "1rem" }}>
         {userData.loggedIn ? (

@@ -16,7 +16,7 @@ export default function SignOutIcon({ ...props }) {
   }
   return (
     <i
-      style={{ color: "#fff" }}
+      style={{ color: "red" }}
       className={["sign-out", "fas fa-sign-out-alt", size].join(" ")}
     ></i>
   );

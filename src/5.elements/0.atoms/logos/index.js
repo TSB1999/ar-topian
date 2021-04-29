@@ -22,7 +22,16 @@ export default function Logo() {
         }}
       >
         <Link to="/" style={{ textDecoration: "none" }}>
-          <text style={{ color: "#fff", fontFamily: "Helvetica" }}>AR</text>
+          <text
+            style={{
+              color: "#fff",
+              fontFamily: "Arial Rounded MT Bold",
+              fontWeight: "bold",
+              fontSize: "1.2rem",
+            }}
+          >
+            AR
+          </text>
         </Link>
       </div>
     </div>

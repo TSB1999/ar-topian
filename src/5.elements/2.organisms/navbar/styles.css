@@ -6,11 +6,12 @@
 }
 
 .navbar__logo {
-  flex: 3;
+  flex: 1;
 }
 
 .navbar__options {
   display: flex;
   align-items: center;
+  /* justify-content: flex-end; */
   flex: 1;
 }
