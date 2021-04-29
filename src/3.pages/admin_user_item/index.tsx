@@ -19,14 +19,17 @@ export default function AdminUser(props) {
   });
   const { userData, setUserData } = useContext(UserContext);
   // console.log(props.match.params);
-  const name = props.match.params.user;
+  const name = props.match.params.id;
 
   useEffect(() => {
-    // console.log(form);
-  }, [name]);
+    console.log(name);
+  }, []);
 
-  const addItem = () => {
-    console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
+  const addPatt = () => {
+    // console.log([form, JSON.parse(localStorage.getItem("state") as any)]);
+
+    // update orders collection
+
     axios
       .post("/item", form, {
         headers: {
@@ -144,8 +147,18 @@ export default function AdminUser(props) {
   return (
     <div style={{ background: "#7e7e7e" }}>
       <div style={{ paddingTop: "0.6rem" }}>
-        <div>
-          <Heading label={name} />
+        <div
+          style={{
+            height: "35vh",
+            width: "100%",
+            backgroundImage: fileURL,
+            marginBottom: "1rem",
+          }}
+        >
+          <img
+            style={{ height: "100%", width: "100%" }}
+            src={userData.current_patt.image}
+          />
         </div>
         <div
           style={{
@@ -161,30 +174,11 @@ export default function AdminUser(props) {
               console.log("hi");
             }}
           >
-            <label>NAME</label>
-            <input name="name" onChange={(e) => handleFormChange(e, "name")} />
-
             <label>PATT UPLOAD</label>
             <input
               type="file"
               name="image"
               onChange={(e) => handleFormChange(e, "image")}
-            />
-            <div
-              style={{
-                height: "35vh",
-                width: "100%",
-                backgroundImage: fileURL,
-                marginBottom: "1rem",
-              }}
-            >
-              <img style={{ height: "100%", width: "100%" }} src={fileURL} />
-            </div>
-
-            <label>PRICE</label>
-            <input
-              name="price"
-              onChange={(e) => handleFormChange(e, "price")}
             />
           </form>
         </div>
@@ -192,7 +186,7 @@ export default function AdminUser(props) {
         <Flex flexDirection="column" backgroundColor="#000" color="#fff">
           <div style={{ padding: "1rem" }}>
             <div style={{ marginBottom: "1rem" }}>
-              <Proceed icon="plus" label="ADD" onClick={() => addItem()} />
+              <Proceed icon="plus" label="SUBMIT" onClick={() => addPatt()} />
             </div>
             <div style={{ marginBottom: "1rem" }}>
               <Proceed icon="window-close" label="CANCEL" />

@@ -35,6 +35,7 @@ function App() {
         items: [],
         current: {},
         token: "",
+        current_patt: {},
       };
   const [userData, setUserData] = useState(initialState);
 
@@ -81,7 +82,7 @@ function App() {
           <Route exact path="/basket" component={Basket} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/:user" component={AdminUser} />
-          <Route exact path="/admin/:user/:image" component={AdminUserItem} />
+          <Route exact path="/admin/:user/:id" component={AdminUserItem} />
         </UserContext.Provider>
       </Router>
     </div>
